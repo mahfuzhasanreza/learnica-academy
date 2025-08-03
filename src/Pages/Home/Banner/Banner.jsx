@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import lottie from '../../../assets/lottie/online-learning.json'
+import Lottie from "lottie-react";
 
 // Hero Highlight Components from Aceternity UI
 const HeroHighlight = ({ children, className }) => {
@@ -241,6 +243,11 @@ const Banner = () => {
             ))}
           </motion.div>
         </div>
+
+        <div>
+          <Lottie animationData={lottie} loop={true} />
+        </div>
+
       </motion.div>
 
       {/* Background gradient overlay on hover */}
