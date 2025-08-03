@@ -348,11 +348,11 @@ const Banner = () => {
         className="mx-20 absolute z-10 h-full flex items-center content-center justify-center px-8 md:px-16 lg:px-24"
       >
         {/* Left Content */}
-        <div className=" mt-10 flex-1 ">
+        <div className="mt-10 flex-1 ">
           {/* Offer Badge */}
-          <motion.div variants={itemVariants} className="mb-6">
+          {/* <motion.div variants={itemVariants} className="mb-6">
             <OfferBadge />
-          </motion.div>
+          </motion.div> */}
 
           {/* Main Heading */}
           <motion.h1
