@@ -552,7 +552,7 @@ const Banner = () => {
               
               {/* Multi-layered Glow */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-cyan-500/30 rounded-full blur-3xl z-10"
+                className="absolute inset-0 bg-gradient-to-r from-blue-800/30 via-purple-800/30 to-cyan-800/30 rounded-full blur-2xl z-10"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.7, 0.3],
@@ -631,6 +631,9 @@ const Banner = () => {
                 }}
               />
             </div>
+
+
+            
           </motion.div>
         </motion.div>
       </motion.div>
