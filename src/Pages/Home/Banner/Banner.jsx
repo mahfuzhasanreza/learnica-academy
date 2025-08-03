@@ -126,9 +126,9 @@ const Banner = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 h-full flex items-center justify-start px-8 md:px-16 lg:px-24"
+        className="justify-center relative z-10 h-full flex items-center  px-8 md:px-16 lg:px-24"
       >
-        <div className="max-w-4xl">
+        <div className=" max-w-4xl">
           {/* Main Heading with Hero Highlight */}
           <motion.h1
             variants={itemVariants}
