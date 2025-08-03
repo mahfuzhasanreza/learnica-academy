@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { Target, Eye, Rocket, Sparkles, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
-import cansatLogo from '../../../assets/logo/cansat-logo.png';
+import learnicaLogo from '../../../assets/logo/learnica-logo.svg';
 
 export default function MissionVisionSection() {
   const ref = useRef(null);

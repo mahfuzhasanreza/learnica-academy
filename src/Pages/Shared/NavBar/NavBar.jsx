@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, User, ShoppingCart, Bell } from "lucide-react";
+import learnicaLogo from '../../../assets/logo/learnica-logo.svg'
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,12 +60,13 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+            {/* <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-black text-xl">L</span>
-            </div>
-            <span className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+            </div> */}
+            {/* <span className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               Learnica
-            </span>
+            </span> */}
+            <img src={learnicaLogo} alt="Learnica Logo" className="hidden lg:block w-44" />
           </motion.div>
 
           {/* Desktop Navigation */}
