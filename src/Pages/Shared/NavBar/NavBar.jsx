@@ -21,8 +21,8 @@ const Navbar = () => {
   // Navigation items
   const navItems = [
     { name: 'Home', href: '#home' },
-    { 
-      name: 'Courses', 
+    {
+      name: 'Courses',
       href: '#courses',
       dropdown: [
         { name: 'Web Development', href: '#web-dev' },
@@ -45,15 +45,15 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-2xl' 
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-2xl'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
+
         <div className="flex items-center justify-between h-20">
-          
+
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-2"
@@ -70,68 +70,70 @@ const Navbar = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <div key={item.name} className="relative group">
-                {item.dropdown ? (
-                  <>
-                    <button
-                      onClick={() => handleDropdownToggle(index)}
-                      className="flex items-center space-x-1 text-white hover:text-cyan-400 transition-colors duration-300 font-medium"
-                    >
-                      <span>{item.name}</span>
-                      <motion.div
-                        animate={{ rotate: activeDropdown === index ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <ChevronDown size={16} />
-                      </motion.div>
-                    </button>
-                    
-                    {/* Dropdown Menu */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ 
-                        opacity: activeDropdown === index ? 1 : 0,
-                        y: activeDropdown === index ? 0 : 10,
-                        scale: activeDropdown === index ? 1 : 0.95
-                      }}
-                      transition={{ duration: 0.2 }}
-                      className={`absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl ${
-                        activeDropdown === index ? 'pointer-events-auto' : 'pointer-events-none'
-                      }`}
-                    >
-                      {item.dropdown.map((dropItem) => (
-                        <a
-                          key={dropItem.name}
-                          href={dropItem.href}
-                          className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 first:rounded-t-xl last:rounded-b-xl"
-                          onClick={() => setActiveDropdown(null)}
-                        >
-                          {dropItem.name}
-                        </a>
-                      ))}
-                    </motion.div>
-                  </>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium relative group"
-                  >
-                    {item.name}
-                    <motion.div
-                      className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"
-                    />
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
+
 
           {/* Right Side Actions */}
           <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item, index) => (
+                <div key={item.name} className="relative group">
+                  {item.dropdown ? (
+                    <>
+                      <button
+                        onClick={() => handleDropdownToggle(index)}
+                        className="flex items-center space-x-1 text-white hover:text-cyan-400 transition-colors duration-300 font-medium"
+                      >
+                        <span>{item.name}</span>
+                        <motion.div
+                          animate={{ rotate: activeDropdown === index ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ChevronDown size={16} />
+                        </motion.div>
+                      </button>
+
+                      {/* Dropdown Menu */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{
+                          opacity: activeDropdown === index ? 1 : 0,
+                          y: activeDropdown === index ? 0 : 10,
+                          scale: activeDropdown === index ? 1 : 0.95
+                        }}
+                        transition={{ duration: 0.2 }}
+                        className={`absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl ${activeDropdown === index ? 'pointer-events-auto' : 'pointer-events-none'
+                          }`}
+                      >
+                        {item.dropdown.map((dropItem) => (
+                          <a
+                            key={dropItem.name}
+                            href={dropItem.href}
+                            className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 first:rounded-t-xl last:rounded-b-xl"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            {dropItem.name}
+                          </a>
+                        ))}
+                      </motion.div>
+                    </>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium relative group"
+                    >
+                      {item.name}
+                      <motion.div
+                        className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"
+                      />
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+
+
             {/* Notifications */}
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="relative p-2 text-gray-300 hover:text-white transition-colors duration-300"
@@ -140,10 +142,10 @@ const Navbar = () => {
               <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
                 <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
               </span>
-            </motion.button>
+            </motion.button> */}
 
             {/* Cart */}
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="relative p-2 text-gray-300 hover:text-white transition-colors duration-300"
@@ -152,7 +154,7 @@ const Navbar = () => {
               <span className="absolute -top-1 -right-1 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold text-white">
                 3
               </span>
-            </motion.button>
+            </motion.button> */}
 
             {/* Sign In Button */}
             <motion.button
@@ -160,12 +162,12 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="px-4 py-2 text-white border border-white/30 rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 font-medium"
             >
-              Sign In
+              Apply as Instructor
             </motion.button>
 
             {/* Get Started Button */}
             <motion.button
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 25px rgba(59, 130, 246, 0.4)"
               }}
@@ -194,7 +196,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <motion.div
           initial={{ height: 0, opacity: 0 }}
-          animate={{ 
+          animate={{
             height: isOpen ? 'auto' : 0,
             opacity: isOpen ? 1 : 0
           }}
@@ -218,7 +220,7 @@ const Navbar = () => {
                         <ChevronDown size={16} />
                       </motion.div>
                     </button>
-                    
+
                     <motion.div
                       initial={{ height: 0 }}
                       animate={{ height: activeDropdown === index ? 'auto' : 0 }}
@@ -251,7 +253,7 @@ const Navbar = () => {
                 )}
               </div>
             ))}
-            
+
             {/* Mobile Actions */}
             <div className="pt-4 border-t border-white/10 space-y-3 px-4">
               <button className="w-full px-4 py-3 text-white border border-white/30 rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 font-medium">

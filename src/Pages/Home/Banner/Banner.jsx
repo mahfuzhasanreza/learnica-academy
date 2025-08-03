@@ -359,9 +359,9 @@ const Banner = () => {
             variants={itemVariants}
             className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
           >
-            Learn{" "}
+            Grow{" "}
             <Highlight className="text-black font-extrabold">
-              Smarter
+            Confidently
             </Highlight>{" "}
             with{" "}
             <motion.span
