@@ -536,7 +536,7 @@ const Banner = () => {
               <Lottie 
                 animationData={lottie} 
                 loop={true} 
-                className=" w-full h-full drop-shadow-2xl filter brightness-110"
+                className="w-full h-full drop-shadow-2xl filter brightness-110"
               />
               
               {/* Multi-layered Glow */}
