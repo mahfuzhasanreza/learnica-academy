@@ -584,7 +584,7 @@ const Banner = () => {
               
               {/* Enhanced Orbiting Elements */}
               <motion.div
-                className="absolute top-1/4 right-0 w-6 h-6 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full shadow-lg z-20"
+                className="absolute top-1/4 right-0 w-6 h-6 bg-gradient-to-r shadow-lg z-20"
                 animate={{
                   rotate: [0, 360],
                   scale: [1, 1.5, 1]
