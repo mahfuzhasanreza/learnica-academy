@@ -12,10 +12,10 @@ const AnimatedBackground = () => {
         className="absolute inset-0"
         animate={{
           background: [
-            "linear-gradient(45deg, #0f0f23 0%, #1a0b3d 25%, #2d1b69 50%, #1a0b3d 75%, #0f0f23 100%)",
-            "linear-gradient(135deg, #1a0b3d 0%, #2d1b69 25%, #4c1d95 50%, #2d1b69 75%, #1a0b3d 100%)",
-            "linear-gradient(225deg, #2d1b69 0%, #4c1d95 25%, #6366f1 50%, #4c1d95 75%, #2d1b69 100%)",
-            "linear-gradient(315deg, #4c1d95 0%, #6366f1 25%, #8b5cf6 50%, #6366f1 75%, #4c1d95 100%)",
+            "linear-gradient(45deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%)",
+            "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%, #0a0a0a 100%)",
+            "linear-gradient(225deg, #1a1a1a 0%, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%, #1a1a1a 100%)",
+            "linear-gradient(315deg, #2a2a2a 0%, #3a3a3a 25%, #1f1f1f 50%, #3a3a3a 75%, #2a2a2a 100%)",
           ]
         }}
         transition={{
@@ -536,7 +536,7 @@ const Banner = () => {
               <Lottie 
                 animationData={lottie} 
                 loop={true} 
-                className="w-full h-full drop-shadow-2xl filter brightness-110"
+                className=" w-full h-full drop-shadow-2xl filter brightness-110"
               />
               
               {/* Multi-layered Glow */}
