@@ -360,12 +360,15 @@ const Banner = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
           >
             Learn{" "}
-            <Highlight className="text-black dark:text-white">
+            <Highlight className="text-black font-extrabold">
               Smarter
             </Highlight>{" "}
             with{" "}
             <motion.span
-              className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+              className="
+              bg-gradient-to-r from-yellow-400 via-amber-600 to-yellow-500
+
+              bg-clip-text text-transparent"
               whileHover={{ 
                 scale: 1.02,
                 filter: "drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))"

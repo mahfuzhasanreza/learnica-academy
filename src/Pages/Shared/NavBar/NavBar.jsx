@@ -170,7 +170,7 @@ const Navbar = () => {
                 boxShadow: "0 0 25px rgba(59, 130, 246, 0.4)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+              className="px-6 py-2 bg-gradient-to-r from-yellow-600 to-gray-600 text-white rounded-full font-bold shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Get Started
             </motion.button>
