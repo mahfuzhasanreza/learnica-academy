@@ -366,7 +366,7 @@ const Banner = () => {
             with{" "}
             <motion.span
               className="
-              bg-gradient-to-r from-yellow-400 via-amber-600 to-yellow-500
+              bg-gradient-to-r from-yellow-400 via-amber-600 to-red-500
 
               bg-clip-text text-transparent"
               whileHover={{ 
@@ -412,7 +412,7 @@ const Banner = () => {
           >
             <motion.a
               href="#courses"
-              className="relative px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
+              className="relative px-8 py-4 bg-gradient-to-r from-red-600 via-yellow-600 to-red-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)"
@@ -443,7 +443,7 @@ const Banner = () => {
 
             <motion.a
               href="#benefits"
-              className="px-8 py-4 border-2 border-purple-400/50 text-white rounded-full font-bold text-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all backdrop-blur-sm relative overflow-hidden group"
+              className="px-8 py-4 border-2 border-yellow-400/50 text-white rounded-full font-bold text-lg hover:border-yellow-400 hover:bg-purple-400/10 transition-all backdrop-blur-sm relative overflow-hidden group"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)"
