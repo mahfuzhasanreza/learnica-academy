@@ -11,11 +11,14 @@ const AnimatedBackground = () => {
       <motion.div 
         className="absolute inset-0"
         animate={{
+          // background: [
+          //   "linear-gradient(45deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%)",
+          //   "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%, #0a0a0a 100%)",
+          //   "linear-gradient(225deg, #1a1a1a 0%, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%, #1a1a1a 100%)",
+          //   "linear-gradient(315deg, #2a2a2a 0%, #3a3a3a 25%, #1f1f1f 50%, #3a3a3a 75%, #2a2a2a 100%)",
+          // ]
           background: [
             "linear-gradient(45deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%)",
-            "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%, #0a0a0a 100%)",
-            "linear-gradient(225deg, #1a1a1a 0%, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%, #1a1a1a 100%)",
-            "linear-gradient(315deg, #2a2a2a 0%, #3a3a3a 25%, #1f1f1f 50%, #3a3a3a 75%, #2a2a2a 100%)",
           ]
         }}
         transition={{
