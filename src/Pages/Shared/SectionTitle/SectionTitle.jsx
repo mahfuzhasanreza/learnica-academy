@@ -1,24 +1,53 @@
 import { motion } from "framer-motion";
 
-export default function SectionTitle({ title, subtitle, center = false }) {
+const SectionTitle = ({ title, subtitle, icon, className = "" }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      viewport={{ once: true }}
-      className={`mt-0 ${center ? "text-center" : "text-left"}`}
+      className={`text-center mb-12 max-w-3xl mx-auto ${className}`}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <h2 className="relative inline-block text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-yellow-600 to-purple-600">
-        {title}
-        <span className="block h-1 w-16 mt-2 mx-auto bg-gradient-to-r from-green-500 via-yellow-500 to-purple-500 rounded-full animate-pulse" />
-      </h2>
-
+      <div className="flex items-center justify-center gap-4 mb-3">
+        {icon && (
+          <motion.div
+            className="text-indigo-500"
+            initial={{ rotate: 0 }}
+            animate={{ rotate: 360 }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          >
+            {icon}
+          </motion.div>
+        )}
+        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
+          {title}
+        </h2>
+      </div>
+      
       {subtitle && (
-        <p className="mt-4 max-w-2xl text-gray-700 text-base sm:text-lg mx-auto">
+        <motion.p
+          className="text-gray-300 text-lg max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+        >
           {subtitle}
-        </p>
+        </motion.p>
       )}
+
+      {/* Animated Underline */}
+      <motion.div
+        className="h-1 rounded-full mx-auto mt-6"
+        initial={{ width: 0, opacity: 0.5 }}
+        animate={{ width: "6rem", opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        style={{
+          background:
+            "linear-gradient(90deg, #6366f1, #a855f7, #ec4899)"
+        }}
+      />
     </motion.div>
   );
-}
+};
+
+export default SectionTitle;
