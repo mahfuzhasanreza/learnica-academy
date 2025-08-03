@@ -1,150 +1,276 @@
-import cansat_logo from '../../../assets/logo/cansat-logo.png'
-import { useState } from 'react';
-import Modal from 'react-modal';
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown, User, ShoppingCart, Bell } from "lucide-react";
 
-const NavBar = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Navigation items
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { 
+      name: 'Courses', 
+      href: '#courses',
+      dropdown: [
+        { name: 'Web Development', href: '#web-dev' },
+        { name: 'Data Science', href: '#data-science' },
+        { name: 'Mobile Apps', href: '#mobile' },
+        { name: 'UI/UX Design', href: '#design' },
+      ]
+    },
+    { name: 'About', href: '#about' },
+    { name: 'Instructors', href: '#instructors' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const handleDropdownToggle = (index) => {
+    setActiveDropdown(activeDropdown === index ? null : index);
+  };
+
   return (
-    <div className="border-b border-gray-200 bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-      <div className="max-w-screen-2xl mx-auto navbar">
-        {/* Navbar Start */}
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden hover:bg-blue-50 transition-colors duration-200">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-white/95 backdrop-blur-sm rounded-xl border border-gray-200 z-50 mt-3 w-64 p-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
-              <li>
-                <a className="rounded-lg hover:bg-blue-100 hover:text-blue-700 font-medium transition-all duration-200">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a className="rounded-lg hover:bg-blue-100 hover:text-blue-700 font-medium transition-all duration-200">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a className="rounded-lg hover:bg-blue-100 hover:text-blue-700 font-medium transition-all duration-200">
-                  Team
-                </a>
-                <ul className="p-2 mt-1 bg-gray-50/80 rounded-lg border border-gray-100">
-                  <li>
-                    <a className="text-sm hover:bg-white hover:text-blue-600 rounded-md transition-all duration-200">
-                      ASTRO 2024
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-sm hover:bg-white hover:text-blue-600 rounded-md transition-all duration-200">
-                      ASCEND 2025
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-sm hover:bg-white hover:text-blue-600 rounded-md transition-all duration-200">
-                      Join Us
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <img className="cursor-pointer w-20 hover:scale-105 transition-transform duration-200" src={cansat_logo} alt="CanSat" />
-        </div>
-
-        {/* Navbar Center */}
-        <div className="navbar-end hidden lg:flex">
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-2xl' 
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="flex items-center justify-between h-20">
           
+          {/* Logo */}
+          <motion.div
+            className="flex items-center space-x-2"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-black text-xl">L</span>
+            </div>
+            <span className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+              Learnica
+            </span>
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navItems.map((item, index) => (
+              <div key={item.name} className="relative group">
+                {item.dropdown ? (
+                  <>
+                    <button
+                      onClick={() => handleDropdownToggle(index)}
+                      className="flex items-center space-x-1 text-white hover:text-cyan-400 transition-colors duration-300 font-medium"
+                    >
+                      <span>{item.name}</span>
+                      <motion.div
+                        animate={{ rotate: activeDropdown === index ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ChevronDown size={16} />
+                      </motion.div>
+                    </button>
+                    
+                    {/* Dropdown Menu */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ 
+                        opacity: activeDropdown === index ? 1 : 0,
+                        y: activeDropdown === index ? 0 : 10,
+                        scale: activeDropdown === index ? 1 : 0.95
+                      }}
+                      transition={{ duration: 0.2 }}
+                      className={`absolute top-full left-0 mt-2 w-48 bg-black/90 backdrop-blur-lg border border-white/20 rounded-xl shadow-2xl ${
+                        activeDropdown === index ? 'pointer-events-auto' : 'pointer-events-none'
+                      }`}
+                    >
+                      {item.dropdown.map((dropItem) => (
+                        <a
+                          key={dropItem.name}
+                          href={dropItem.href}
+                          className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200 first:rounded-t-xl last:rounded-b-xl"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          {dropItem.name}
+                        </a>
+                      ))}
+                    </motion.div>
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium relative group"
+                  >
+                    {item.name}
+                    <motion.div
+                      className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"
+                    />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Right Side Actions */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {/* Notifications */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative p-2 text-gray-300 hover:text-white transition-colors duration-300"
+            >
+              <Bell size={20} />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
+                <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
+              </span>
+            </motion.button>
+
+            {/* Cart */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative p-2 text-gray-300 hover:text-white transition-colors duration-300"
+            >
+              <ShoppingCart size={20} />
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold text-white">
+                3
+              </span>
+            </motion.button>
+
+            {/* Sign In Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 text-white border border-white/30 rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 font-medium"
+            >
+              Sign In
+            </motion.button>
+
+            {/* Get Started Button */}
+            <motion.button
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 25px rgba(59, 130, 246, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Get Started
+            </motion.button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 text-white hover:text-cyan-400 transition-colors duration-300"
+          >
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.div>
+          </motion.button>
         </div>
 
-        {/* Navbar End */}
-        <div className="w-full navbar-end flex items-center gap-2">
-          <div className=''>
-          <ul className="menu menu-horizontal px-1 space-x-2">
-            <li>
-              <a className="px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-100 hover:to-indigo-100 hover:text-blue-700 font-medium transition duration-200">
-                Home
-              </a>
-            </li>
-            <li>
-              <a className="px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-100 hover:to-indigo-100 hover:text-blue-700 font-medium transition duration-200">
-                Projects
-              </a>
-            </li>
-            <li>
-              <details className="dropdown">
-                <summary className="px-4 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-100 hover:to-indigo-100 hover:text-blue-700 font-medium cursor-pointer transition duration-200">
-                  Team
-                </summary>
-                <ul className="p-3 mt-2 bg-white/95 backdrop-blur-sm rounded-xl border border-gray-200 shadow-lg min-w-48 space-y-1 animate-in slide-in-from-top-2 duration-200">
-                  <li>
-                    <a className="px-3 py-2 text-sm font-medium rounded-md hover:bg-blue-50 hover:text-blue-600 transition-all duration-200">
-                      ASTRO 2024
-                    </a>
-                  </li>
-                  <li>
-                    <a className="px-3 py-2 text-sm font-medium rounded-md hover:bg-blue-50 hover:text-blue-600 transition-all duration-200">
-                      ASCEND 2025
-                    </a>
-                  </li>
-                  <li>
-                    <a className="px-3 py-2 text-sm font-medium rounded-md hover:bg-blue-50 hover:text-blue-600 transition-all duration-200">
-                      Join Us
-                    </a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-          </ul>
-          </div>
-          <a className="btn bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white border-none shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-semibold px-6">
-            <span className="flex items-center space-x-2">
-              <span>Contact Us</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </span>
-          </a>
-          {/* Watch for Details Button */}
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer ml-2 px-4 py-2 bg-gradient-to-r from-red-500 to-yellow-500 text-white rounded-lg text-base font-semibold hover:scale-105 transform transition-all duration-300 shadow flex items-center gap-2"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-            Watch for Details
-          </button>
-          {/* Modal for YouTube Video */}
-          <Modal
-            isOpen={isModalOpen}
-            onRequestClose={() => setIsModalOpen(false)}
-            contentLabel="Watch for Details Video"
-            className="fixed inset-0 flex items-center justify-center bg-black/70 p-4 z-[999]"
-            overlayClassName="fixed inset-0 bg-black/60 z-[998]"
-          >
-            <div className="relative w-full max-w-3xl aspect-video bg-black rounded-lg overflow-hidden">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/1eZ9H9aFC4k?autoplay=1"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-3 right-3 bg-white/90 text-black px-3 py-1 rounded-full hover:bg-white transition-all"
-              >
-                ✕
+        {/* Mobile Navigation */}
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ 
+            height: isOpen ? 'auto' : 0,
+            opacity: isOpen ? 1 : 0
+          }}
+          transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+          className="lg:hidden overflow-hidden bg-black/95 backdrop-blur-lg border-t border-white/10"
+        >
+          <div className="py-4 space-y-2">
+            {navItems.map((item, index) => (
+              <div key={item.name}>
+                {item.dropdown ? (
+                  <>
+                    <button
+                      onClick={() => handleDropdownToggle(index)}
+                      className="flex items-center justify-between w-full px-4 py-3 text-white hover:text-cyan-400 hover:bg-white/5 transition-all duration-300 font-medium"
+                    >
+                      <span>{item.name}</span>
+                      <motion.div
+                        animate={{ rotate: activeDropdown === index ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <ChevronDown size={16} />
+                      </motion.div>
+                    </button>
+                    
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: activeDropdown === index ? 'auto' : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden bg-white/5"
+                    >
+                      {item.dropdown.map((dropItem) => (
+                        <a
+                          key={dropItem.name}
+                          href={dropItem.href}
+                          className="block px-8 py-2 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-200"
+                          onClick={() => {
+                            setIsOpen(false);
+                            setActiveDropdown(null);
+                          }}
+                        >
+                          {dropItem.name}
+                        </a>
+                      ))}
+                    </motion.div>
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="block px-4 py-3 text-white hover:text-cyan-400 hover:bg-white/5 transition-all duration-300 font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )}
+              </div>
+            ))}
+            
+            {/* Mobile Actions */}
+            <div className="pt-4 border-t border-white/10 space-y-3 px-4">
+              <button className="w-full px-4 py-3 text-white border border-white/30 rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 font-medium">
+                Sign In
+              </button>
+              <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold shadow-lg">
+                Get Started
               </button>
             </div>
-          </Modal>
-        </div>
+          </div>
+        </motion.div>
       </div>
-    </div>
+
+      {/* Close dropdown when clicking outside */}
+      {activeDropdown !== null && (
+        <div
+          className="fixed inset-0 z-40"
+          onClick={() => setActiveDropdown(null)}
+        />
+      )}
+    </motion.nav>
   );
 };
 
-export default NavBar;
+export default Navbar;
