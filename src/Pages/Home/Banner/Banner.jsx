@@ -340,15 +340,15 @@ const Banner = () => {
   };
 
   return (
-    <HeroHighlight>
+    <HeroHighlight className="flex justify-center" >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 h-full flex items-center justify-between px-8 md:px-16 lg:px-24"
+        className="mx-20 absolute z-10 h-full flex items-center content-center justify-center px-8 md:px-16 lg:px-24"
       >
         {/* Left Content */}
-        <div className="flex-1 max-w-2xl">
+        <div className=" mt-10 flex-1 ">
           {/* Offer Badge */}
           <motion.div variants={itemVariants} className="mb-6">
             <OfferBadge />
@@ -382,13 +382,23 @@ const Banner = () => {
             className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl"
           >
             Top-rated online platform for{" "}
-            <Highlight className="text-black dark:text-white font-bold">
+            
+            {/* <Highlight className="text-black dark:text-white font-bold">
               UIU students
-            </Highlight>{" "}
+            </Highlight> */}
+
+            UIU students
+            
+            {" "}
             to learn, grow, and excel with{" "}
-            <Highlight className="text-black dark:text-white font-bold">
+            
+            {/* <Highlight className="text-black dark:text-white font-bold">
               real industry-focused
-            </Highlight>{" "}
+            </Highlight> */}
+
+            real industry-focused
+            
+            {" "}
             courses.
           </motion.p>
 
@@ -453,9 +463,7 @@ const Banner = () => {
             className="grid grid-cols-3 gap-6 max-w-lg mb-6"
           >
             {[
-              { number: "500+", label: "Active Students", color: "from-blue-400 to-cyan-400" },
-              { number: "50+", label: "Expert Instructors", color: "from-purple-400 to-pink-400" },
-              { number: "100+", label: "Course Modules", color: "from-green-400 to-blue-400" }
+  
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -524,7 +532,7 @@ const Banner = () => {
         {/* Right Side - Enhanced Lottie Animation */}
         <motion.div
           variants={itemVariants}
-          className="hidden lg:flex flex-1 justify-center items-center ml-8"
+          className=" hidden lg:flex flex-1 justify-center items-center ml-8"
         >
           <motion.div
             className="w-full max-w-lg h-96 relative"
@@ -532,16 +540,16 @@ const Banner = () => {
             transition={{ duration: 0.3 }}
           >
             {/* Enhanced Lottie Container */}
-            <div className="relative">
+            <div className="relative z-30">
               <Lottie 
                 animationData={lottie} 
                 loop={true} 
-                className="w-full h-full drop-shadow-2xl filter brightness-110"
+                className="w-2xl drop-shadow-2xl filter  relative z-40"
               />
               
               {/* Multi-layered Glow */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-cyan-500/30 rounded-full blur-3xl -z-10"
+                className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-cyan-500/30 rounded-full blur-3xl z-10"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.7, 0.3],
@@ -555,7 +563,7 @@ const Banner = () => {
               />
               
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-pink-500/20 via-yellow-500/20 to-purple-500/20 rounded-full blur-2xl -z-20"
+                className="absolute inset-0 bg-gradient-to-r from-pink-500/20 via-yellow-500/20 to-purple-500/20 rounded-full blur-2xl z-0"
                 animate={{
                   scale: [1.2, 0.8, 1.2],
                   opacity: [0.2, 0.5, 0.2],
@@ -570,7 +578,7 @@ const Banner = () => {
               
               {/* Enhanced Orbiting Elements */}
               <motion.div
-                className="absolute top-1/4 right-0 w-6 h-6 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full shadow-lg"
+                className="absolute top-1/4 right-0 w-6 h-6 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full shadow-lg z-20"
                 animate={{
                   rotate: [0, 360],
                   scale: [1, 1.5, 1]
@@ -587,7 +595,7 @@ const Banner = () => {
               />
               
               <motion.div
-                className="absolute bottom-1/4 left-0 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full shadow-lg"
+                className="absolute bottom-1/4 left-0 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full shadow-lg z-20"
                 animate={{
                   rotate: [360, 0],
                   scale: [1, 1.3, 1]
@@ -604,7 +612,7 @@ const Banner = () => {
               />
               
               <motion.div
-                className="absolute top-1/2 left-1/2 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full shadow-lg"
+                className="absolute top-1/2 left-1/2 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full shadow-lg z-20"
                 animate={{
                   rotate: [0, -360],
                   scale: [1, 2, 1]
