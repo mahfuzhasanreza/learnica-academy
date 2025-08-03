@@ -1,7 +1,7 @@
 import Banner from "../Banner/Banner";
 import FAQSection from "../FAQSection/FAQSection";
 import MediaCoverageSection from "../MediaCoverageSection/MediaCoverageSection";
-import MissionVisionSection from "../MissionVisionSection/MissionVisionSection";
+import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 import NewsNoticesSection from "../NewsNoticesSection/NewsNoticesSection";
 import SponsorsSection from "../SponsorSection/SponsorSection";
 import TeamSlider from "../TeamSlider/TeamSlider";
@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <MissionVisionSection></MissionVisionSection>
+            <WhyChooseUs></WhyChooseUs>
             <TeamSlider></TeamSlider>
             <SponsorsSection></SponsorsSection>
             <MediaCoverageSection></MediaCoverageSection>

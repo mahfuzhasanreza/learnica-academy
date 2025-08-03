@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 const SectionTitle = ({ title, subtitle, icon, className = "" }) => {
   return (
     <motion.div
-      className={`text-center mb-12 max-w-3xl mx-auto ${className}`}
+      className={`mb-20 text-center max-w-3xl mx-auto ${className}`}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -18,7 +18,7 @@ const SectionTitle = ({ title, subtitle, icon, className = "" }) => {
             <Lottie
               animationData={circleText}
               loop={true}
-              className="absolute top-1/2 left-1/2 w-48 h-24 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+              className="absolute top-1/2 left-1/2 w-52 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
             />
           </span>
           Us
@@ -35,16 +35,6 @@ const SectionTitle = ({ title, subtitle, icon, className = "" }) => {
           {subtitle}
         </motion.p>
       )}
-
-      <motion.div
-        className="h-1 rounded-full mx-auto mt-6"
-        initial={{ width: 0, opacity: 0.5 }}
-        animate={{ width: "6rem", opacity: 1 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        style={{
-          background: "linear-gradient(90deg, #6366f1, #a855f7, #ec4899)",
-        }}
-      />
     </motion.div>
   );
 };
