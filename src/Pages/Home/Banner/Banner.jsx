@@ -3,58 +3,20 @@ import { useState } from "react";
 import lottie from '../../../assets/lottie/online-learning.json'
 import Lottie from "lottie-react";
 
-// Animated Background Component
+// Enhanced Animated Background Component
 const AnimatedBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Gradient Base */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900" />
-      
-      {/* Moving Mesh Gradient */}
-      <motion.div
+      {/* Dynamic Gradient Base */}
+      <motion.div 
         className="absolute inset-0"
         animate={{
           background: [
-            "radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%)",
-            "radial-gradient(circle at 60% 20%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 20% 60%, rgba(255, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%)",
-            "radial-gradient(circle at 80% 60%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(255, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 20% 20%, rgba(120, 219, 255, 0.3) 0%, transparent 50%)",
+            "linear-gradient(45deg, #0f0f23 0%, #1a0b3d 25%, #2d1b69 50%, #1a0b3d 75%, #0f0f23 100%)",
+            "linear-gradient(135deg, #1a0b3d 0%, #2d1b69 25%, #4c1d95 50%, #2d1b69 75%, #1a0b3d 100%)",
+            "linear-gradient(225deg, #2d1b69 0%, #4c1d95 25%, #6366f1 50%, #4c1d95 75%, #2d1b69 100%)",
+            "linear-gradient(315deg, #4c1d95 0%, #6366f1 25%, #8b5cf6 50%, #6366f1 75%, #4c1d95 100%)",
           ]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-      
-      {/* Floating Particles */}
-      {[...Array(30)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 bg-white rounded-full opacity-20"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -100, 0],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: Math.random() * 5 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
-      
-      {/* Geometric Shapes */}
-      <motion.div
-        className="absolute top-20 left-10 w-32 h-32 border border-blue-400/20 rounded-full"
-        animate={{
-          rotate: [0, 360],
-          scale: [1, 1.1, 1],
         }}
         transition={{
           duration: 20,
@@ -63,11 +25,118 @@ const AnimatedBackground = () => {
         }}
       />
       
+      {/* Neon Grid Effect */}
+      <div className="absolute inset-0 opacity-20">
+        <motion.div 
+          className="w-full h-full"
+          animate={{
+            backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
+      </div>
+      
+      {/* Enhanced Moving Orbs */}
       <motion.div
-        className="absolute top-40 right-20 w-24 h-24 border border-purple-400/20 rounded-lg"
+        className="absolute top-10 left-10 w-64 h-64 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, rgba(139, 92, 246, 0.2) 40%, transparent 70%)",
+          filter: "blur(40px)"
+        }}
         animate={{
-          rotate: [0, -360],
-          scale: [1, 1.2, 1],
+          x: [0, 100, -50, 0],
+          y: [0, -50, 100, 0],
+          scale: [1, 1.3, 0.8, 1],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      <motion.div
+        className="absolute top-40 right-20 w-48 h-48 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(139, 92, 246, 0.2) 40%, transparent 70%)",
+          filter: "blur(30px)"
+        }}
+        animate={{
+          x: [0, -80, 60, 0],
+          y: [0, 80, -40, 0],
+          scale: [1, 0.7, 1.4, 1],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      <motion.div
+        className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, rgba(59, 130, 246, 0.2) 40%, transparent 70%)",
+          filter: "blur(50px)"
+        }}
+        animate={{
+          x: [0, 120, -80, 0],
+          y: [0, -60, 40, 0],
+          scale: [1, 1.1, 0.9, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      {/* Sparkle Particles */}
+      {[...Array(50)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            width: Math.random() * 4 + 1 + 'px',
+            height: Math.random() * 4 + 1 + 'px',
+            left: Math.random() * 100 + '%',
+            top: Math.random() * 100 + '%',
+            background: `hsl(${240 + Math.random() * 60}, 70%, 70%)`,
+            boxShadow: `0 0 ${Math.random() * 10 + 5}px currentColor`,
+          }}
+          animate={{
+            y: [0, Math.random() * -200 - 50],
+            opacity: [0, 1, 0],
+            scale: [0, 1, 0],
+          }}
+          transition={{
+            duration: Math.random() * 3 + 2,
+            repeat: Infinity,
+            delay: Math.random() * 5,
+            ease: "easeOut"
+          }}
+        />
+      ))}
+      
+      {/* Floating Geometric Elements */}
+      <motion.div
+        className="absolute top-32 left-20 w-20 h-20 border-2 border-cyan-400/30"
+        style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+        animate={{
+          rotate: [0, 360],
+          y: [-10, 10, -10],
+          borderColor: ["rgba(34, 211, 238, 0.3)", "rgba(236, 72, 153, 0.3)", "rgba(99, 102, 241, 0.3)", "rgba(34, 211, 238, 0.3)"]
         }}
         transition={{
           duration: 15,
@@ -77,10 +146,11 @@ const AnimatedBackground = () => {
       />
       
       <motion.div
-        className="absolute bottom-32 left-32 w-16 h-16 border border-cyan-400/20 rounded-full"
+        className="absolute bottom-40 right-32 w-16 h-16 border-2 border-pink-400/30 rounded-lg"
         animate={{
-          rotate: [0, 360],
-          y: [-10, 10, -10],
+          rotate: [0, -360],
+          scale: [1, 1.2, 1],
+          borderColor: ["rgba(236, 72, 153, 0.3)", "rgba(99, 102, 241, 0.3)", "rgba(34, 211, 238, 0.3)", "rgba(236, 72, 153, 0.3)"]
         }}
         transition={{
           duration: 12,
@@ -89,88 +159,124 @@ const AnimatedBackground = () => {
         }}
       />
       
-      {/* Wave Animation */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 overflow-hidden opacity-10">
-        <motion.svg
-          className="absolute bottom-0 w-full h-full"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          animate={{
-            x: [0, -100, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        >
-          <path
-            d="M0,60 Q150,20 300,60 T600,60 T900,60 T1200,60 L1200,120 L0,120 Z"
-            fill="white"
-          />
-        </motion.svg>
-        
-        <motion.svg
-          className="absolute bottom-0 w-full h-full"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          animate={{
-            x: [0, 100, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear",
-            delay: -2
-          }}
-        >
-          <path
-            d="M0,80 Q200,40 400,80 T800,80 T1200,80 L1200,120 L0,120 Z"
-            fill="white"
-          />
-        </motion.svg>
-      </div>
-      
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
-      
-      {/* Spotlight Effect */}
+      {/* Pulsing Rings */}
       <motion.div
-        className="absolute inset-0"
+        className="absolute top-1/2 left-1/4 w-32 h-32 border border-white/10 rounded-full"
         animate={{
-          background: [
-            "radial-gradient(ellipse 800px 600px at 50% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 70%)",
-            "radial-gradient(ellipse 600px 800px at 30% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 70%)",
-            "radial-gradient(ellipse 800px 600px at 70% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 70%)",
-          ]
+          scale: [1, 2, 1],
+          opacity: [0.5, 0, 0.5],
         }}
         transition={{
-          duration: 12,
+          duration: 4,
           repeat: Infinity,
           ease: "easeInOut"
+        }}
+      />
+      
+      <motion.div
+        className="absolute top-1/3 right-1/3 w-24 h-24 border border-white/10 rounded-full"
+        animate={{
+          scale: [1, 2.5, 1],
+          opacity: [0.3, 0, 0.3],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
         }}
       />
     </div>
   );
 };
 
-// Hero Highlight Components from Aceternity UI
+// Offer Badge Component
+const OfferBadge = () => {
+  return (
+    <motion.div
+      initial={{ scale: 0, rotate: -180 }}
+      animate={{ scale: 1, rotate: 0 }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 260, 
+        damping: 20,
+        delay: 0.5 
+      }}
+      className="relative"
+    >
+      <motion.div
+        className="relative bg-gradient-to-r from-red-500 via-pink-500 to-red-500 text-white px-6 py-3 rounded-full font-bold text-lg shadow-2xl border-2 border-white/20"
+        animate={{
+          boxShadow: [
+            "0 0 20px rgba(239, 68, 68, 0.5)",
+            "0 0 40px rgba(236, 72, 153, 0.8)",
+            "0 0 20px rgba(239, 68, 68, 0.5)"
+          ]
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        whileHover={{ scale: 1.1 }}
+      >
+        <motion.span
+          animate={{
+            textShadow: [
+              "0 0 10px rgba(255,255,255,0.5)",
+              "0 0 20px rgba(255,255,255,0.8)",
+              "0 0 10px rgba(255,255,255,0.5)"
+            ]
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          🔥 LIMITED TIME: 60% OFF
+        </motion.span>
+        
+        {/* Sparkle Effect */}
+        <motion.div
+          className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-300 rounded-full"
+          animate={{
+            scale: [0, 1, 0],
+            rotate: [0, 180, 360]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </motion.div>
+      
+      {/* Floating "HOT" badge */}
+      <motion.div
+        className="absolute -top-3 -right-3 bg-yellow-400 text-black px-2 py-1 rounded-full text-xs font-black"
+        animate={{
+          y: [-2, 2, -2],
+          rotate: [-5, 5, -5]
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        HOT
+      </motion.div>
+    </motion.div>
+  );
+};
+
+// Hero Highlight Components
 const HeroHighlight = ({ children, className }) => {
   return (
     <div className={`relative h-[90vh] w-full bg-black ${className}`}>
       <AnimatedBackground />
-      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black/20 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <div className="absolute pointer-events-none inset-0 bg-black/10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       {children}
     </div>
   );
@@ -195,7 +301,7 @@ const Highlight = ({ children, className }) => {
         backgroundPosition: "left center",
         display: "inline",
       }}
-      className={`relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500 ${className}`}
+      className={`relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 dark:from-yellow-400 dark:via-pink-400 dark:to-purple-400 ${className}`}
     >
       {children}
     </motion.span>
@@ -205,14 +311,13 @@ const Highlight = ({ children, className }) => {
 const Banner = () => {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
       },
     },
   };
@@ -220,16 +325,16 @@ const Banner = () => {
   const itemVariants = {
     hidden: { 
       opacity: 0, 
-      y: 50,
-      filter: "blur(10px)"
+      y: 60,
+      filter: "blur(20px)"
     },
     visible: {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 0.8,
-        ease: "easeOut",
+        duration: 1,
+        ease: [0.25, 0.4, 0.25, 1],
       },
     },
   };
@@ -244,10 +349,15 @@ const Banner = () => {
       >
         {/* Left Content */}
         <div className="flex-1 max-w-2xl">
-          {/* Main Heading with Hero Highlight */}
+          {/* Offer Badge */}
+          <motion.div variants={itemVariants} className="mb-6">
+            <OfferBadge />
+          </motion.div>
+
+          {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
           >
             Learn{" "}
             <Highlight className="text-black dark:text-white">
@@ -255,111 +365,163 @@ const Banner = () => {
             </Highlight>{" "}
             with{" "}
             <motion.span
-              className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent"
-              whileHover={{ scale: 1.02 }}
+              className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+              whileHover={{ 
+                scale: 1.02,
+                filter: "drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))"
+              }}
               transition={{ duration: 0.3 }}
             >
               Learnica Academy
             </motion.span>
           </motion.h1>
 
-          {/* Subtitle with highlights */}
+          {/* Enhanced Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-neutral-300 mb-8 leading-relaxed max-w-2xl"
+            className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl"
           >
             Top-rated online platform for{" "}
-            <Highlight className="text-black dark:text-white font-semibold">
+            <Highlight className="text-black dark:text-white font-bold">
               UIU students
             </Highlight>{" "}
             to learn, grow, and excel with{" "}
-            <Highlight className="text-black dark:text-white font-semibold">
+            <Highlight className="text-black dark:text-white font-bold">
               real industry-focused
             </Highlight>{" "}
             courses.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Enhanced CTA Buttons */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 mb-8"
           >
             <motion.a
               href="#courses"
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/20 transition-all relative overflow-hidden group"
-              whileHover={{ scale: 1.05 }}
+              className="relative px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)"
+              }}
               whileTap={{ scale: 0.95 }}
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+              }}
+              transition={{
+                backgroundPosition: {
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }
+              }}
+              style={{ backgroundSize: "200% 200%" }}
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500"
+                className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-pink-400"
                 initial={{ x: '-100%' }}
                 whileHover={{ x: '0%' }}
                 transition={{ duration: 0.3 }}
               />
-              <span className="relative z-10">
-                Browse Courses
+              <span className="relative z-10 flex items-center gap-2">
+                🚀 Get 60% OFF Now
               </span>
             </motion.a>
 
             <motion.a
               href="#benefits"
-              className="px-8 py-4 border border-neutral-600 text-white rounded-full font-semibold text-lg hover:border-white hover:bg-white/10 transition-all backdrop-blur-sm"
-              whileHover={{ scale: 1.05 }}
+              className="px-8 py-4 border-2 border-purple-400/50 text-white rounded-full font-bold text-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all backdrop-blur-sm relative overflow-hidden group"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)"
+              }}
               whileTap={{ scale: 0.95 }}
             >
-              Explore Benefits
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20"
+                initial={{ scale: 0 }}
+                whileHover={{ scale: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="relative z-10">Explore Benefits</span>
             </motion.a>
           </motion.div>
 
-          {/* Stats */}
+          {/* Enhanced Stats */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-3 gap-6 max-w-lg mb-6"
           >
             {[
-              { number: "500+", label: "Active Students" },
-              { number: "50+", label: "Expert Instructors" },
-              { number: "100+", label: "Course Modules" }
+              { number: "500+", label: "Active Students", color: "from-blue-400 to-cyan-400" },
+              { number: "50+", label: "Expert Instructors", color: "from-purple-400 to-pink-400" },
+              { number: "100+", label: "Course Modules", color: "from-green-400 to-blue-400" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
-                className="text-center group cursor-default"
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: 20 }}
+                className="text-center group cursor-default relative"
+                whileHover={{ 
+                  scale: 1.1,
+                  y: -5
+                }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5 + index * 0.2 }}
+                transition={{ delay: 2 + index * 0.2 }}
               >
-                <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
+                <motion.div 
+                  className={`text-2xl md:text-3xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent relative`}
+                  animate={{
+                    filter: ["drop-shadow(0 0 0px currentColor)", "drop-shadow(0 0 10px currentColor)", "drop-shadow(0 0 0px currentColor)"]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.5
+                  }}
+                >
                   {stat.number}
-                </div>
-                <div className="text-neutral-400 text-sm mt-1 group-hover:text-neutral-300 transition-colors">
+                </motion.div>
+                <div className="text-gray-300 text-sm mt-1 group-hover:text-white transition-colors font-medium">
                   {stat.label}
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Feature Tags */}
+          {/* Enhanced Feature Tags */}
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap gap-3"
           >
-            {['Interactive Learning', 'Industry Certified', 'Flexible Schedule', '24/7 Support'].map((feature, index) => (
+            {[
+              { text: 'Interactive Learning', color: 'from-blue-500 to-cyan-500' },
+              { text: 'Industry Certified', color: 'from-purple-500 to-pink-500' },
+              { text: 'Flexible Schedule', color: 'from-green-500 to-blue-500' },
+              { text: '24/7 Support', color: 'from-red-500 to-orange-500' }
+            ].map((feature, index) => (
               <motion.span
-                key={feature}
-                className="px-4 py-2 bg-white/5 backdrop-blur-sm text-neutral-300 rounded-full text-sm font-medium border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all cursor-default"
-                whileHover={{ scale: 1.05, y: -2 }}
+                key={feature.text}
+                className="px-4 py-2 bg-white/5 backdrop-blur-sm text-white rounded-full text-sm font-semibold border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all cursor-default relative overflow-hidden group"
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -3,
+                  boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
+                }}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2 + index * 0.1 }}
+                transition={{ delay: 2.5 + index * 0.1 }}
               >
-                {feature}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-r ${feature.color} opacity-0 group-hover:opacity-20`}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative z-10">{feature.text}</span>
               </motion.span>
             ))}
           </motion.div>
         </div>
 
-        {/* Right Side - Lottie Animation */}
+        {/* Right Side - Enhanced Lottie Animation */}
         <motion.div
           variants={itemVariants}
           className="hidden lg:flex flex-1 justify-center items-center ml-8"
@@ -369,48 +531,83 @@ const Banner = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Lottie Container with Glow Effect */}
+            {/* Enhanced Lottie Container */}
             <div className="relative">
               <Lottie 
                 animationData={lottie} 
                 loop={true} 
-                className="w-full h-full drop-shadow-2xl"
+                className="w-full h-full drop-shadow-2xl filter brightness-110"
               />
               
-              {/* Animated Glow */}
+              {/* Multi-layered Glow */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 rounded-full blur-3xl -z-10"
+                className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-cyan-500/30 rounded-full blur-3xl -z-10"
                 animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.6, 0.3],
+                  scale: [1, 1.3, 1],
+                  opacity: [0.3, 0.7, 0.3],
+                  rotate: [0, 180, 360]
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
               />
               
-              {/* Orbiting Elements */}
               <motion.div
-                className="absolute top-1/4 right-0 w-4 h-4 bg-blue-400 rounded-full"
+                className="absolute inset-0 bg-gradient-to-r from-pink-500/20 via-yellow-500/20 to-purple-500/20 rounded-full blur-2xl -z-20"
                 animate={{
-                  rotate: [0, 360],
+                  scale: [1.2, 0.8, 1.2],
+                  opacity: [0.2, 0.5, 0.2],
+                  rotate: [360, 180, 0]
                 }}
                 transition={{
                   duration: 8,
                   repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              {/* Enhanced Orbiting Elements */}
+              <motion.div
+                className="absolute top-1/4 right-0 w-6 h-6 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full shadow-lg"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.5, 1]
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
                   ease: "linear"
                 }}
                 style={{
-                  transformOrigin: "-100px 100px"
+                  transformOrigin: "-120px 120px",
+                  filter: "drop-shadow(0 0 10px currentColor)"
                 }}
               />
               
               <motion.div
-                className="absolute bottom-1/4 left-0 w-3 h-3 bg-purple-400 rounded-full"
+                className="absolute bottom-1/4 left-0 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full shadow-lg"
                 animate={{
                   rotate: [360, 0],
+                  scale: [1, 1.3, 1]
+                }}
+                transition={{
+                  duration: 15,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+                style={{
+                  transformOrigin: "120px -120px",
+                  filter: "drop-shadow(0 0 8px currentColor)"
+                }}
+              />
+              
+              <motion.div
+                className="absolute top-1/2 left-1/2 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full shadow-lg"
+                animate={{
+                  rotate: [0, -360],
+                  scale: [1, 2, 1]
                 }}
                 transition={{
                   duration: 12,
@@ -418,7 +615,8 @@ const Banner = () => {
                   ease: "linear"
                 }}
                 style={{
-                  transformOrigin: "100px -100px"
+                  transformOrigin: "0px -80px",
+                  filter: "drop-shadow(0 0 6px currentColor)"
                 }}
               />
             </div>
@@ -426,15 +624,15 @@ const Banner = () => {
         </motion.div>
       </motion.div>
 
-      {/* Interactive Hover Effect */}
+      {/* Enhanced Interactive Overlay */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{
           background: isHovered 
-            ? 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 70%)'
+            ? 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%)'
             : 'radial-gradient(circle at 50% 50%, transparent 0%, transparent 70%)'
         }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1 }}
       />
     </HeroHighlight>
   );
