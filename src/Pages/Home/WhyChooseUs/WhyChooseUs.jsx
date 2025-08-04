@@ -30,7 +30,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
     >
       {/* Background with glassmorphism */}
       <motion.div
-        className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 overflow-hidden"
+        className="relative h-full bg-white/4 backdrop-blur-xl border border-white/10 rounded-2xl p-8 overflow-hidden"
         whileHover={{
           y: -10,
           scale: 1.02,
@@ -198,10 +198,13 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="relative pt-24 pb-16 bg-black overflow-hidden">
+    // <section className="relative pt-24 pb-16 bg-black overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       {/* Background Elements */}
+      
+      {/*
       <div className="absolute inset-0">
-        {/* Animated background gradient */}
+   
         <motion.div
           className="absolute inset-0 opacity-30"
           animate={{
@@ -219,7 +222,7 @@ const WhyChooseUs = () => {
           }}
         />
 
-        {/* Grid pattern */}
+        
         <div className="absolute inset-0 opacity-10">
           <div
             className="w-full h-full"
@@ -233,6 +236,44 @@ const WhyChooseUs = () => {
           />
         </div>
       </div>
+      */}
+
+
+
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+                {/* Animated Background Gradients */}
+                <motion.div
+                    className="absolute inset-0 opacity-20"
+                    animate={{
+                        background: [
+                            "radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 50%)",
+                            "radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.15) 0%, transparent 50%)",
+                            "radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 50%)",
+                        ]
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+
+                {/* Grid Pattern */}
+                <div className="absolute inset-0 opacity-5">
+                    <div
+                        className="w-full h-full"
+                        style={{
+                            backgroundImage: `
+                linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+              `,
+                            backgroundSize: '100px 100px',
+                        }}
+                    />
+                </div>
+            </div>
+
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
