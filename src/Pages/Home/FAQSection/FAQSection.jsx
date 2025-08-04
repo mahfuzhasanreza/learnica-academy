@@ -1,69 +1,62 @@
 import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
-export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null);
+const faqs = [
+  {
+    question: "What is Learnico?",
+    answer:
+      "Learnico is a modern e-learning platform where students can purchase premium courses and access free resources."
+  },
+  {
+    question: "How do I enroll in a course?",
+    answer:
+      "Simply sign up, browse the courses, and click on 'Enroll Now' to start learning."
+  },
+  {
+    question: "Can instructors upload their own courses?",
+    answer:
+      "Yes! Instructors can apply through the Instructor Panel and publish their own premium or free courses."
+  },
+  {
+    question: "What payment methods are supported?",
+    answer:
+      "We support bKash, Nagad, Rocket, credit/debit cards, and other local gateways."
+  },
+  {
+    question: "Is there any refund policy?",
+    answer:
+      "Yes, we offer a 7-day refund policy under specific conditions. Please check our refund page for more details."
+  }
+];
+
+const FAQ = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const faqs = [
-    {
-      question: "What is Learnica Academy?",
-      answer:
-        "Learnica Academy is a student-led aerospace project team from United International University that designs, builds, and launches satellite prototypes called CanSats for various competitions.",
-    },
-    {
-      question: "Who can join the team?",
-      answer:
-        "Any enthusiastic student from UIU, regardless of department or level, can apply to join during the recruitment period.",
-    },
-    {
-      question: "What skills are required to join Learnica Academy?",
-      answer:
-        "Both beginners and experienced students are welcome. Skills in programming, electronics, design, research, writing, or management are all valuable.",
-    },
-    {
-      question: "How often does the team meet?",
-      answer:
-        "The frequency of meetings depends on the project timeline. During intense phases, meetings are held weekly or more often.",
-    },
-    {
-      question: "Is Learnica Academy only about technical work?",
-      answer:
-        "Not at all. We also need members for documentation, sponsorship, marketing, event coordination, and more.",
-    },
-    {
-      question: "Where can I learn more or get involved?",
-      answer:
-        "Follow our official Facebook page or check our website. We regularly post recruitment and update announcements.",
-    },
-  ];
-
   return (
-    <section className="max-w-4xl mx-auto px-4 py-12" id="faq">
-      <h2 className="text-3xl font-bold mb-8 text-center text-blue-800">Frequently Asked Questions</h2>
+    <div className="max-w-4xl mx-auto px-4 py-10">
+      <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="border border-gray-300 rounded-xl p-4 hover:shadow transition-all"
-          >
+          <div key={index} className="border rounded-lg p-4 shadow-sm">
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left flex justify-between items-center"
+              className="flex justify-between items-center w-full text-left"
             >
-              <span className="font-medium text-gray-800">{faq.question}</span>
-              <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
+              <span className="text-lg font-semibold">{faq.question}</span>
+              {activeIndex === index ? <ChevronUp /> : <ChevronDown />}
             </button>
-            {openIndex === index && (
-              <p className="mt-3 text-gray-600 transition-opacity duration-300">
-                {faq.answer}
-              </p>
+            {activeIndex === index && (
+              <p className="mt-3 text-gray-700">{faq.answer}</p>
             )}
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
-}
+};
+
+export default FAQ;
