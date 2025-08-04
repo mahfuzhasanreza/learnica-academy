@@ -50,7 +50,7 @@ const Navbar = () => {
           : 'bg-transparent'
         }`}
     >
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto pl-0 pr-2 md:px-4 lg:px-8">
 
         <div className="flex items-center justify-between h-20">
 
@@ -66,7 +66,7 @@ const Navbar = () => {
             {/* <span className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               Learnica
             </span> */}
-            <img src={learnicaLogo} alt="Learnica Logo" className="hidden lg:block w-44" />
+            <img src={learnicaLogo} alt="Learnica Logo" className="w-28 md:w-44" />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -178,6 +178,8 @@ const Navbar = () => {
             </motion.button>
           </div>
 
+
+
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
@@ -191,6 +193,9 @@ const Navbar = () => {
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.div>
           </motion.button>
+
+
+          
         </div>
 
         {/* Mobile Navigation */}
@@ -257,9 +262,9 @@ const Navbar = () => {
             {/* Mobile Actions */}
             <div className="pt-4 border-t border-white/10 space-y-3 px-4">
               <button className="w-full px-4 py-3 text-white border border-white/30 rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 font-medium">
-                Sign In
+                Apply as Instructor
               </button>
-              <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold shadow-lg">
+              <button className="w-full px-4 py-3 bg-gradient-to-r from-red-600 to-yellow-600 text-white rounded-full font-bold shadow-lg">
                 Get Started
               </button>
             </div>
