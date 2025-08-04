@@ -13,13 +13,13 @@ const IconWrapper = ({ children, className = "" }) => (
 // Enhanced Card Component
 const FeatureCard = ({ icon, title, description, index, gradient, accentColor }) => {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50, rotateX: -15 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-      transition={{ 
-        duration: 0.6, 
+      transition={{
+        duration: 0.6,
         delay: index * 0.1,
         ease: [0.25, 0.4, 0.25, 1]
       }}
@@ -31,7 +31,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
       {/* Background with glassmorphism */}
       <motion.div
         className="relative h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 overflow-hidden"
-        whileHover={{ 
+        whileHover={{
           y: -10,
           scale: 1.02,
         }}
@@ -45,7 +45,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
           }}
           transition={{ duration: 0.3 }}
         />
-        
+
         {/* Glowing border effect */}
         <motion.div
           className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${gradient} opacity-0 blur-xl`}
@@ -55,7 +55,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
           transition={{ duration: 0.3 }}
           style={{ zIndex: -1 }}
         />
-        
+
         {/* Corner accent */}
         <motion.div
           className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${gradient} opacity-10 rounded-bl-3xl`}
@@ -65,7 +65,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
           }}
           transition={{ duration: 0.3 }}
         />
-        
+
         {/* Icon with animation */}
         <motion.div
           className="relative z-10"
@@ -78,8 +78,8 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
           <IconWrapper className="text-5xl mb-6">
             <motion.span
               animate={{
-                filter: isHovered 
-                  ? `drop-shadow(0 0 20px ${accentColor})` 
+                filter: isHovered
+                  ? `drop-shadow(0 0 20px ${accentColor})`
                   : 'drop-shadow(0 0 0px transparent)'
               }}
               transition={{ duration: 0.3 }}
@@ -88,7 +88,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
             </motion.span>
           </IconWrapper>
         </motion.div>
-        
+
         {/* Title */}
         <motion.h3
           className="text-2xl font-bold text-white mb-4 relative z-10"
@@ -99,7 +99,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
         >
           {title}
         </motion.h3>
-        
+
         {/* Description */}
         <motion.p
           className="text-gray-300 leading-relaxed relative z-10"
@@ -110,7 +110,7 @@ const FeatureCard = ({ icon, title, description, index, gradient, accentColor })
         >
           {description}
         </motion.p>
-        
+
         {/* Floating particles */}
         {isHovered && (
           <>
@@ -198,7 +198,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative pt-24 pb-16 bg-black overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Animated background gradient */}
@@ -218,10 +218,10 @@ const WhyChooseUs = () => {
             ease: "linear"
           }}
         />
-        
+
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div 
+          <div
             className="w-full h-full"
             style={{
               backgroundImage: `
@@ -279,37 +279,39 @@ const WhyChooseUs = () => {
           </motion.p>
         </motion.div> */}
 
-         {/* Section header */}
-      <motion.div
-      className={`mb-20 text-center max-w-3xl mx-auto`}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <div className="leading-tight flex items-center justify-center gap-4 mb-6">
-        <h2 className="text-4xl md:text-6xl text-white font-extrabold bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
-          Why
-          <span className="relative inline-block mx-2">
-            <span className="z-10 text-white relative">Choose</span>
-            <Lottie
-              animationData={circleText}
-              loop={true}
-              className="absolute top-1/2 left-1/2 w-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            />
-          </span>
-          Us
-        </h2>
-      </div>
-        <motion.p
-          className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-          initial={{ opacity: 0, y: 20 }}
+        {/* Section header */}
+        <motion.div
+          className={`mb-20 text-center max-w-3xl mx-auto`}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          We understand the unique challenges faced by UIU students. That's why we've created 
-          a learning platform that fits perfectly into your academic journey.
-        </motion.p>
-    </motion.div>
+          <div className="leading-tight flex items-center justify-center gap-4 mb-6">
+            <h2 className="text-4xl md:text-6xl text-white font-extrabold bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
+              Why
+              <span className='bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent'>
+                <span className="relative inline-block mx-2">
+                  <span className="z-10 bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent relative">Choose</span>
+                  <Lottie
+                    animationData={circleText}
+                    loop={true}
+                    className="absolute top-1/2 left-1/2 w-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                  />
+                </span>
+                Us
+              </span>
+            </h2>
+          </div>
+          <motion.p
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          >
+            We understand the unique challenges faced by UIU students. That's why we've created
+            a learning platform that fits perfectly into your academic journey.
+          </motion.p>
+        </motion.div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -330,12 +332,12 @@ const WhyChooseUs = () => {
           viewport={{ once: true }}
           className="text-center mt-20"
         >
-          <motion.div
+          {/* <motion.div
             className="inline-flex flex-col sm:flex-row gap-4"
           >
             <motion.button
               className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-bold text-lg shadow-2xl relative overflow-hidden group"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(6, 182, 212, 0.5)"
               }}
@@ -349,10 +351,10 @@ const WhyChooseUs = () => {
               />
               <span className="relative z-10">Start Learning Today</span>
             </motion.button>
-            
+
             <motion.button
               className="px-8 py-4 border-2 border-purple-500/50 text-white rounded-full font-bold text-lg hover:border-purple-500 hover:bg-purple-500/10 transition-all backdrop-blur-sm"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)"
               }}
@@ -360,7 +362,7 @@ const WhyChooseUs = () => {
             >
               View All Courses
             </motion.button>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>

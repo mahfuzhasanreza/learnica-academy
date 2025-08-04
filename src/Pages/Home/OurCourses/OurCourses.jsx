@@ -473,7 +473,7 @@ const OurCourses = () => {
           >
             Our{" "}
             <motion.span
-              className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-red-400 via-yellow-500 to-red-600 bg-clip-text text-transparent"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
