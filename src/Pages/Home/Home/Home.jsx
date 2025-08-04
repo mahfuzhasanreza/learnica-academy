@@ -7,6 +7,7 @@ import SponsorsSection from "../SponsorSection/SponsorSection";
 import TeamSlider from "../TeamSlider/TeamSlider";
 import OurCourses from "../OurCourses/OurCourses";
 import YouTubeFeaturedSection from "../YouTubeFeaturedSection/YouTubeFeaturedSection";
+import Instructor from "../Instructor/Instructor";
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <WhyChooseUs></WhyChooseUs>
             <OurCourses></OurCourses>
             <YouTubeFeaturedSection></YouTubeFeaturedSection>
+            <Instructor></Instructor>
             <TeamSlider></TeamSlider>
             <SponsorsSection></SponsorsSection>
             <MediaCoverageSection></MediaCoverageSection>

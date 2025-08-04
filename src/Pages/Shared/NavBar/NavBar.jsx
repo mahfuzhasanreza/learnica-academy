@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, User, ShoppingCart, Bell } from "lucide-react";
 import learnicaLogo from '../../../assets/logo/learnica-logo.svg'
+import logoGif from '../../../assets/logo/Learnico.gif';
 
 
 const Navbar = () => {
@@ -46,8 +47,8 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-2xl'
-          : 'bg-transparent'
+        ? 'bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-2xl'
+        : 'bg-transparent'
         }`}
     >
       <div className="container mx-auto pl-0 pr-2 md:px-4 lg:px-8">
@@ -55,19 +56,18 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <motion.div
+          {/* <motion.div
             className="flex items-center space-x-2"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            {/* <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-black text-xl">L</span>
-            </div> */}
-            {/* <span className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Learnica
-            </span> */}
             <img src={learnicaLogo} alt="Learnica Logo" className="w-28 md:w-44" />
-          </motion.div>
+          </motion.div> */}
+
+
+          {/* Logo */}
+          <img src={logoGif} alt="Learnica Logo" className="w-28 md:w-44" />
+
 
           {/* Desktop Navigation */}
 
@@ -195,7 +195,7 @@ const Navbar = () => {
           </motion.button>
 
 
-          
+
         </div>
 
         {/* Mobile Navigation */}
