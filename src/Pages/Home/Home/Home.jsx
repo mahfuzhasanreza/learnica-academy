@@ -1,13 +1,10 @@
 import Banner from "../Banner/Banner";
 import FAQSection from "../FAQSection/FAQSection";
-import MediaCoverageSection from "../MediaCoverageSection/MediaCoverageSection";
 import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
-import NewsNoticesSection from "../NewsNoticesSection/NewsNoticesSection";
-import SponsorsSection from "../SponsorSection/SponsorSection";
-import TeamSlider from "../TeamSlider/TeamSlider";
 import OurCourses from "../OurCourses/OurCourses";
 import YouTubeFeaturedSection from "../YouTubeFeaturedSection/YouTubeFeaturedSection";
 import Instructor from "../Instructor/Instructor";
+import ContactUs from "../ContactUs/ContactUs";
 
 const Home = () => {
     return (
@@ -17,11 +14,8 @@ const Home = () => {
             <OurCourses></OurCourses>
             <YouTubeFeaturedSection></YouTubeFeaturedSection>
             <Instructor></Instructor>
-            <TeamSlider></TeamSlider>
-            <SponsorsSection></SponsorsSection>
-            <MediaCoverageSection></MediaCoverageSection>
-            <NewsNoticesSection></NewsNoticesSection>
             <FAQSection></FAQSection>
+            <ContactUs></ContactUs>
         </div>
     );
 };

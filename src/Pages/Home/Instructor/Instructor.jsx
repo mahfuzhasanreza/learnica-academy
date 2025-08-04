@@ -490,7 +490,7 @@ const Instructor = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <motion.div
+          {/* <motion.div
             variants={itemVariants}
             className="inline-block"
           >
@@ -501,19 +501,19 @@ const Instructor = () => {
             >
               👨‍🏫 Meet Our Team
             </motion.span>
-          </motion.div>
+          </motion.div> */}
           
           <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
           >
-            Our Expert{" "}
+            Our{" "}
             <motion.span
               className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              Mentors & Instructors
+              Expert Instructors
             </motion.span>
           </motion.h2>
           
@@ -538,7 +538,7 @@ const Instructor = () => {
         </div>
 
         {/* Call to Action */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -584,7 +584,7 @@ const Instructor = () => {
               </motion.button>
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
