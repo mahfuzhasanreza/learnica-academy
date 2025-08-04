@@ -1,6 +1,120 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
+const AnimatedBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {/* Dynamic Gradient Base */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{
+          background: [
+            "linear-gradient(45deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%)",
+          ]
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+
+      {/* Neon Grid Effect */}
+      <div className="absolute inset-0 opacity-10">
+        <motion.div
+          className="w-full h-full"
+          animate={{
+            backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
+      </div>
+
+      {/* Enhanced Moving Orbs */}
+      <motion.div
+        className="absolute top-10 left-10 w-64 h-64 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%)",
+          filter: "blur(40px)"
+        }}
+        animate={{
+          x: [0, 100, -50, 0],
+          y: [0, -50, 100, 0],
+          scale: [1, 1.3, 0.8, 1],
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <motion.div
+        className="absolute top-40 right-20 w-48 h-48 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(139, 92, 246, 0.1) 40%, transparent 70%)",
+          filter: "blur(30px)"
+        }}
+        animate={{
+          x: [0, -80, 60, 0],
+          y: [0, 80, -40, 0],
+          scale: [1, 0.7, 1.4, 1],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 70%)",
+          filter: "blur(50px)"
+        }}
+        animate={{
+          x: [0, 120, -80, 0],
+          y: [0, -60, 40, 0],
+          scale: [1, 1.1, 0.9, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      {/* Floating Geometric Elements */}
+      <motion.div
+        className="absolute top-32 left-20 w-20 h-20 border-2 border-cyan-400/20"
+        style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
+        animate={{
+          rotate: [0, 360],
+          y: [-10, 10, -10],
+          borderColor: ["rgba(34, 211, 238, 0.2)", "rgba(236, 72, 153, 0.2)", "rgba(99, 102, 241, 0.2)", "rgba(34, 211, 238, 0.2)"]
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+    </div>
+  );
+};
+
 // Social Media Icons
 const LinkedInIcon = ({ className = "" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -117,6 +231,10 @@ const MentorCard = ({ mentor, index }) => {
             }}
           />
         </div>
+
+
+        {/* Animated Background */}
+        {/* <AnimatedBackground /> */}
 
         {/* Glowing Border Effect */}
         <motion.div
@@ -333,7 +451,6 @@ const Instructor = () => {
     <section className="relative py-24 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        {/* Animated background gradient */}
         <motion.div
           className="absolute inset-0 opacity-20"
           animate={{
@@ -350,8 +467,6 @@ const Instructor = () => {
             ease: "easeInOut"
           }}
         />
-        
-        {/* Grid pattern */}
         <div className="absolute inset-0 opacity-5">
           <div 
             className="w-full h-full"
