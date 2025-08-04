@@ -280,6 +280,7 @@ const WhyChooseUs = () => {
         </motion.div> */}
 
         {/* Section header */}
+        {/* Section header */}
         <motion.div
           className={`mb-20 text-center max-w-3xl mx-auto`}
           initial={{ opacity: 0, y: 30 }}
@@ -289,21 +290,24 @@ const WhyChooseUs = () => {
           <div className="leading-tight flex items-center justify-center gap-4 mb-6">
             <h2 className="text-4xl md:text-6xl text-white font-extrabold bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
               Why
-              <span className='bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent'>
-                <span className="relative inline-block mx-2">
-                  <span className="z-10 bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent relative">Choose</span>
-                  <Lottie
-                    animationData={circleText}
-                    loop={true}
-                    className="absolute top-1/2 left-1/2 w-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                  />
+              <span className="relative inline-block mx-2">
+                {/* Gradient applied to "Choose Us" together */}
+                <span className="relative z-10 bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent">
+                  Choose Us
                 </span>
-                Us
+
+                {/* Circle animation centered over “Choose” */}
+                <Lottie
+                  animationData={circleText}
+                  loop={true}
+                  className="absolute top-1/2 left-[35%] w-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                />
               </span>
             </h2>
           </div>
+
           <motion.p
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="mt-7 text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}

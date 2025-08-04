@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import circleText from '../../../assets/lottie/CircleText.json';
+import Lottie from 'lottie-react';
 
 // Enhanced Animated Background Component (matching Banner style)
 const AnimatedBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Dynamic Gradient Base */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
         animate={{
           background: [
@@ -19,10 +21,10 @@ const AnimatedBackground = () => {
           ease: "linear"
         }}
       />
-      
+
       {/* Neon Grid Effect */}
       <div className="absolute inset-0 opacity-10">
-        <motion.div 
+        <motion.div
           className="w-full h-full"
           animate={{
             backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"]
@@ -41,7 +43,7 @@ const AnimatedBackground = () => {
           }}
         />
       </div>
-      
+
       {/* Enhanced Moving Orbs */}
       <motion.div
         className="absolute top-10 left-10 w-64 h-64 rounded-full"
@@ -60,7 +62,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         className="absolute top-40 right-20 w-48 h-48 rounded-full"
         style={{
@@ -78,7 +80,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full"
         style={{
@@ -96,7 +98,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       {/* Floating Geometric Elements */}
       <motion.div
         className="absolute top-32 left-20 w-20 h-20 border-2 border-cyan-400/20"
@@ -120,13 +122,13 @@ const AnimatedBackground = () => {
 const CourseCard = ({ course, index }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 60, rotateX: -15 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-      transition={{ 
-        duration: 0.8, 
+      transition={{
+        duration: 0.8,
         delay: index * 0.2,
         ease: [0.25, 0.4, 0.25, 1]
       }}
@@ -138,7 +140,7 @@ const CourseCard = ({ course, index }) => {
       {/* Main Card Container */}
       <motion.div
         className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden"
-        whileHover={{ 
+        whileHover={{
           y: -15,
           scale: 1.02,
         }}
@@ -152,7 +154,7 @@ const CourseCard = ({ course, index }) => {
           }}
           transition={{ duration: 0.4 }}
         />
-        
+
         {/* Glowing border effect */}
         <motion.div
           className="absolute inset-0 rounded-3xl bg-gradient-to-r from-yellow-500/30 via-red-500/30 to-orange-500/30 opacity-0 blur-xl"
@@ -172,7 +174,7 @@ const CourseCard = ({ course, index }) => {
             }}
             transition={{ duration: 0.6 }}
           />
-          
+
           {/* Placeholder for course image */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 flex items-center justify-center"
@@ -192,7 +194,7 @@ const CourseCard = ({ course, index }) => {
               💻
             </motion.div>
           </motion.div>
-          
+
           {/* Course Code Badge */}
           <motion.div
             className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-bold border border-white/20"
@@ -200,7 +202,7 @@ const CourseCard = ({ course, index }) => {
           >
             {course.code}
           </motion.div>
-          
+
           {/* Discount Badge */}
           {course.discount && (
             <motion.div
@@ -236,7 +238,7 @@ const CourseCard = ({ course, index }) => {
           >
             {course.title}
           </motion.h3>
-          
+
           {/* Mentor Info */}
           <motion.div
             className="flex items-center gap-3 mb-4 p-3 bg-white/5 rounded-xl backdrop-blur-sm border border-white/10"
@@ -251,7 +253,7 @@ const CourseCard = ({ course, index }) => {
               <div className="text-white font-semibold">{course.mentor}</div>
             </div>
           </motion.div>
-          
+
           {/* Start Date */}
           <motion.div
             className="flex items-center gap-2 mb-4 text-gray-300"
@@ -260,7 +262,7 @@ const CourseCard = ({ course, index }) => {
             <span className="text-lg">📅</span>
             <span className="font-medium">Starting: {course.startDate}</span>
           </motion.div>
-          
+
           {/* Pricing */}
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-2">
@@ -285,12 +287,12 @@ const CourseCard = ({ course, index }) => {
               </div>
             )}
           </div>
-          
+
           {/* Action Buttons */}
           <div className="flex gap-3">
             <motion.button
               className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-xl font-bold text-sm relative overflow-hidden group"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
               }}
@@ -304,10 +306,10 @@ const CourseCard = ({ course, index }) => {
               />
               <span className="relative z-10">🛒 Purchase</span>
             </motion.button>
-            
+
             <motion.button
               className="px-6 py-3 border-2 border-purple-500/50 text-white rounded-xl font-bold text-sm hover:border-purple-500 hover:bg-purple-500/20 transition-all backdrop-blur-sm"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 boxShadow: "0 5px 15px rgba(168, 85, 247, 0.2)"
               }}
@@ -317,7 +319,7 @@ const CourseCard = ({ course, index }) => {
             </motion.button>
           </div>
         </div>
-        
+
         {/* Floating particles on hover */}
         {isHovered && (
           <>
@@ -444,10 +446,47 @@ const OurCourses = () => {
     <section className="relative min-h-screen py-24 bg-black overflow-hidden">
       {/* Animated Background */}
       <AnimatedBackground />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
+
+        {/* Section header */}
         <motion.div
+          className={`mb-20 text-center max-w-3xl mx-auto`}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="leading-tight flex items-center justify-center gap-4 mb-6">
+            <h2 className="text-4xl md:text-6xl text-white font-extrabold bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
+              Our
+              <span className="relative inline-block mx-2">
+                {/* Gradient applied to "Choose Us" together */}
+                <span className="relative z-10 bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent">
+                  Premium Courses
+                </span>
+
+                {/* Circle animation centered over “Choose” */}
+                <Lottie
+                  animationData={circleText}
+                  loop={true}
+                  className="absolute top-1/2 left-[25%] w-72 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                />
+              </span>
+            </h2>
+          </div>
+
+          <motion.p
+            className="mt-10 text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          >
+            Handpicked courses designed specifically for UIU students. Learn from industry experts and build skills that matter in today's competitive job market.
+          </motion.p>
+        </motion.div>
+
+        {/* Section Header */}
+        {/* <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -466,7 +505,7 @@ const OurCourses = () => {
               🚀 Start Your Journey
             </motion.span>
           </motion.div>
-          
+
           <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
@@ -480,15 +519,15 @@ const OurCourses = () => {
               Premium Courses
             </motion.span>
           </motion.h2>
-          
+
           <motion.p
             variants={itemVariants}
             className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Handpicked courses designed specifically for UIU students. Learn from industry experts 
+            Handpicked courses designed specifically for UIU students. Learn from industry experts
             and build skills that matter in today's competitive job market.
           </motion.p>
-        </motion.div>
+        </motion.div> */}
 
         {/* Courses Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -511,7 +550,7 @@ const OurCourses = () => {
         >
           <motion.button
             className="px-10 py-4 bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 text-white rounded-full font-bold text-lg shadow-2xl relative overflow-hidden group"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               boxShadow: "0 0 40px rgba(6, 182, 212, 0.4)"
             }}
