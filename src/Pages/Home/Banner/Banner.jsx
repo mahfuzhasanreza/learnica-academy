@@ -415,7 +415,7 @@ const Banner = () => {
           >
             <motion.a
               href="#courses"
-              className="relative px-8 py-4 bg-gradient-to-r from-red-600 via-yellow-600 to-red-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
+              className="relative content-center px-8 py-4 bg-gradient-to-r from-red-600 via-yellow-600 to-red-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)"
@@ -440,7 +440,7 @@ const Banner = () => {
                 transition={{ duration: 0.3 }}
               />
               <span className="relative z-10 flex items-center gap-2">
-                🚀 Get 60% OFF Now
+                🚀 GET 60% OFF NOW
               </span>
             </motion.a>
 
