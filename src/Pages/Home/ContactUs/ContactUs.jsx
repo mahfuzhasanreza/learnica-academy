@@ -356,13 +356,6 @@ const ContactForm = () => {
 const ContactUs = () => {
   const contactInfo = [
     {
-      icon: LocationIcon,
-      title: "Visit Our Office",
-      info: "123 Learning Street, Education District, Tech City 12345",
-      gradient: "from-indigo-500 to-purple-600",
-      delay: 0.1
-    },
-    {
       icon: PhoneIcon,
       title: "Call Us",
       info: "+1 (555) 123-4567\nMon - Fri: 9AM - 6PM",
@@ -376,13 +369,6 @@ const ContactUs = () => {
       gradient: "from-green-500 to-emerald-500",
       delay: 0.3
     },
-    {
-      icon: ClockIcon,
-      title: "Office Hours",
-      info: "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 4:00 PM",
-      gradient: "from-orange-500 to-yellow-500",
-      delay: 0.4
-    }
   ];
 
   const containerVariants = {
@@ -419,7 +405,7 @@ const ContactUs = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-20"
         >
-          <motion.div
+          {/* <motion.div
             variants={itemVariants}
             className="inline-block"
           >
@@ -433,7 +419,7 @@ const ContactUs = () => {
             >
               💬 Get In Touch
             </motion.span>
-          </motion.div>
+          </motion.div> */}
           
           <motion.h2
             variants={itemVariants}
@@ -461,8 +447,17 @@ const ContactUs = () => {
           </motion.p>
         </motion.div>
 
-        {/* Contact Info Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        
+
+        {/* Contact Form and Map Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <ContactForm />
+          </div>
+
+          {/* Contact Info Cards */}
+        <div className="grid grid-rows-1 md:grid-rows-2 lg:grid-rows-4 gap-8 mb-20">
           {contactInfo.map((info, index) => (
             <ContactInfoCard
               key={index}
@@ -474,85 +469,6 @@ const ContactUs = () => {
             />
           ))}
         </div>
-
-        {/* Contact Form and Map Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <ContactForm />
-          </div>
-
-          {/* Map/Additional Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-gray-900/80 via-black/90 to-gray-900/80 backdrop-blur-xl rounded-3xl p-10 border border-white/10 shadow-2xl"
-          >
-            <div className="absolute inset-[1px] rounded-3xl bg-gradient-to-br from-white/5 to-transparent" />
-            
-            <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-white mb-6">Why Choose Us?</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Expert Instructors</h4>
-                    <p className="text-gray-400 text-sm">Learn from industry professionals with years of experience.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">24/7 Support</h4>
-                    <p className="text-gray-400 text-sm">Get help whenever you need it with our dedicated support team.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Flexible Learning</h4>
-                    <p className="text-gray-400 text-sm">Study at your own pace with our flexible course structure.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-r from-orange-500 to-yellow-500 flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-semibold mb-2">Career Support</h4>
-                    <p className="text-gray-400 text-sm">Get guidance and support to advance your career goals.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quick Contact */}
-              <div className="mt-8 pt-8 border-t border-white/10">
-                <h4 className="text-white font-semibold mb-4">Quick Contact</h4>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-3 text-gray-400">
-                    <PhoneIcon className="w-4 h-4 text-indigo-400" />
-                    <span>+1 (555) 123-4567</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-gray-400">
-                    <EmailIcon className="w-4 h-4 text-indigo-400" />
-                    <span>hello@learnica.com</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* FAQ Section */}

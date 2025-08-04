@@ -162,7 +162,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="px-4 py-2 text-white border border-white/30 rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 font-medium"
             >
-              Apply as Instructor
+              Apply as Mentor
             </motion.button>
 
             {/* Get Started Button */}
@@ -262,7 +262,7 @@ const Navbar = () => {
             {/* Mobile Actions */}
             <div className="pt-4 border-t border-white/10 space-y-3 px-4">
               <button className="w-full px-4 py-3 text-white border border-white/30 rounded-full hover:border-white/60 hover:bg-white/10 transition-all duration-300 font-medium">
-                Apply as Instructor
+                Apply as Mentor
               </button>
               <button className="w-full px-4 py-3 bg-gradient-to-r from-red-600 to-yellow-600 text-white rounded-full font-bold shadow-lg">
                 Get Started

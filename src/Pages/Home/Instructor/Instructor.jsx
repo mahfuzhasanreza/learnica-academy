@@ -513,7 +513,7 @@ const Instructor = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              Expert Instructors
+              Expert Mentors
             </motion.span>
           </motion.h2>
           
