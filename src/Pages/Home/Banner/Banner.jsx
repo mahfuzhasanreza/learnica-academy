@@ -348,10 +348,36 @@ const Banner = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="mx-20 absolute z-10 h-full flex items-center content-center justify-center px-8 md:px-16 lg:px-24"
+        className="mx-5 md:mx-20 absolute z-10 h-full flex items-center content-center justify-center px-0 md:px-16 lg:px-24"
       >
         {/* Left Content */}
-        <div className="mt-10 flex-1 ">
+        <div className="mt-16 md:mt-10 flex-1 border-4">
+          
+
+        <motion.div
+          variants={itemVariants}
+          className="md:hidden flex justify-center items-center mt-32"
+        >
+          <motion.div
+            className=""
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Enhanced Lottie Container */}
+            <div className="relative z-30">
+              <Lottie 
+                animationData={lottie} 
+                loop={true} 
+                className="w-xs drop-shadow-2xl filter  relative z-40"
+              />
+
+            </div>
+
+
+            
+          </motion.div>
+        </motion.div>
+          
           {/* Offer Badge */}
           {/* <motion.div variants={itemVariants} className="mb-6">
             <OfferBadge />
@@ -360,7 +386,7 @@ const Banner = () => {
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
+            className="text-3xl md:text-6xl lg:text-7xl font-black text-white mb-3 md:mb-6 leading-tight"
           >
             Grow{" "}
             <Highlight className="text-black font-extrabold">
@@ -385,7 +411,7 @@ const Banner = () => {
           {/* Enhanced Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed max-w-2xl"
+            className="text-sm md:text-xl text-gray-200 mb-16 md:mb-8 leading-relaxed max-w-2xl"
           >
             Top-rated online platform for{" "}
             
@@ -415,7 +441,7 @@ const Banner = () => {
           >
             <motion.a
               href="#courses"
-              className="relative content-center px-8 py-4 bg-gradient-to-r from-red-600 via-yellow-600 to-red-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
+              className="relative items-center justify-center flex content-center px-5 py-3 md:px-8 md:py-4 bg-gradient-to-r from-red-600 via-yellow-600 to-red-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)"
@@ -446,7 +472,7 @@ const Banner = () => {
 
             <motion.a
               href="#benefits"
-              className="px-8 py-4 border-2 border-yellow-400/50 text-white rounded-full font-bold text-lg hover:border-yellow-400 hover:bg-purple-400/10 transition-all backdrop-blur-sm relative overflow-hidden group"
+              className="items-center justify-center flex content-center px-5 py-3 md:px-8 md:py-4 border-2 border-yellow-400/50 text-white rounded-full font-bold text-lg hover:border-yellow-400 hover:bg-purple-400/10 transition-all backdrop-blur-sm relative overflow-hidden group"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)"
@@ -538,7 +564,7 @@ const Banner = () => {
         {/* Right Side - Enhanced Lottie Animation */}
         <motion.div
           variants={itemVariants}
-          className=" hidden lg:flex flex-1 justify-center items-center ml-8"
+          className="hidden lg:flex flex-1 justify-center items-center ml-8"
         >
           <motion.div
             className="w-full max-w-lg h-96 relative"
@@ -550,7 +576,7 @@ const Banner = () => {
               <Lottie 
                 animationData={lottie} 
                 loop={true} 
-                className="w-2xl drop-shadow-2xl filter  relative z-40"
+                className="w-sm md:w-2xl drop-shadow-2xl filter  relative z-40"
               />
               
               {/* Multi-layered Glow */}
