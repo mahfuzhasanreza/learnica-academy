@@ -348,15 +348,15 @@ const Banner = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="mx-5 md:mx-20 absolute z-10 h-full flex items-center content-center justify-center px-0 md:px-16 lg:px-24"
+        className="mx-96 md:mx-20 absolute z-10 h-full flex items-center content-center justify-center px-0 md:px-16 lg:px-24"
       >
         {/* Left Content */}
-        <div className="mt-16 md:mt-10 flex-1 border-4">
+        <div className="mt-16 md:mt-10 flex-1 ">
           
-
+        {/* Lottie Animation */}
         <motion.div
           variants={itemVariants}
-          className="md:hidden flex justify-center items-center mt-32"
+          className="md:hidden flex justify-center items-center mt-32 mb-10"
         >
           <motion.div
             className=""
