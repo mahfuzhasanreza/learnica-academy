@@ -257,7 +257,26 @@ const ContactForm = () => {
 
             <div className="relative z-10">
                 <div className="mb-8">
-                    <h3 className="text-3xl font-bold text-white mb-4">Send us a Message</h3>
+                    <motion.h3
+                        className="text-4xl font-bold mb-3"
+                        initial={{ backgroundPosition: '0% 50%' }}
+                        animate={{ backgroundPosition: '100% 50%' }}
+                        transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            repeatType: 'reverse',
+                            ease: 'linear'
+                        }}
+                        style={{
+                            background: 'linear-gradient(90deg, #a78bfa, #818cf8, #a78bfa)',
+                            backgroundSize: '200% auto',
+                            WebkitBackgroundClip: 'text',
+                            backgroundClip: 'text',
+                            color: 'transparent',
+                        }}
+                    >
+                        Send Message
+                    </motion.h3>
                     <p className="text-gray-400 text-lg">
                         Have a question or want to get in touch? We'd love to hear from you.
                     </p>
@@ -416,7 +435,7 @@ const ContactUs = () => {
     };
 
     return (
-        <section className="relative py-32 overflow-hidden">
+        <section className="relative py-24 overflow-hidden">
             {/* Animated Background */}
             <AnimatedBackground />
 
@@ -481,7 +500,7 @@ const ContactUs = () => {
                     </div>
 
                     {/* Contact Info Cards */}
-                    <div className="grid grid-rows-1 md:grid-rows-2 lg:grid-rows-4 gap-8 mb-20">
+                    <div className="grid grid-rows-1 gap-8 ">
                         {contactInfo.map((info, index) => (
                             <ContactInfoCard
                                 key={index}
