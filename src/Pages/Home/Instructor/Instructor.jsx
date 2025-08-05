@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import circleText from '../../../assets/lottie/CircleText.json';
+import Lottie from 'lottie-react';
 
 const AnimatedBackground = () => {
   return (
@@ -482,47 +484,40 @@ const Instructor = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Section Header */}
+
+        {/* Section header */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className={`mb-20 text-center max-w-3xl mx-auto`}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {/* <motion.div
-            variants={itemVariants}
-            className="inline-block"
-          >
-            <motion.span
-              className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/30 rounded-full text-blue-300 text-sm font-semibold mb-6"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              👨‍🏫 Meet Our Team
-            </motion.span>
-          </motion.div> */}
-          
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
-          >
-            Our{" "}
-            <motion.span
-              className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              Expert Mentors
-            </motion.span>
-          </motion.h2>
-          
+          <div className="leading-tight flex items-center justify-center gap-4 mb-6">
+            <h2 className="text-4xl md:text-6xl text-white font-extrabold bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
+              Our
+              <span className="relative inline-block mx-2">
+                {/* Gradient applied to "Choose Us" together */}
+                <span className="relative z-10 bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent">
+                  Expert Instructors
+                </span>
+
+                {/* Circle animation centered over “Choose” */}
+                <Lottie
+                  animationData={circleText}
+                  loop={true}
+                  className="absolute top-1/2 left-[19%] w-57 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                />
+              </span>
+            </h2>
+          </div>
+
           <motion.p
-            variants={itemVariants}
-            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="mt-7 text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
           >
-            Learn from industry professionals who bring real-world experience and passion for teaching. 
-            Our mentors are here to guide you every step of the way.
+            Learn from industry professionals who bring real-world experience and passion for teaching. Our mentors are here to guide you every step of the way.
           </motion.p>
         </motion.div>
 

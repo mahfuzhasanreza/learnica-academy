@@ -32,7 +32,7 @@ const Navbar = () => {
         { name: 'UI/UX Design', href: '#design' },
       ]
     },
-    { name: 'About', href: '#about' },
+    // { name: 'About', href: '#about' },
     { name: 'Instructors', href: '#instructors' },
     { name: 'Contact', href: '#contact' },
   ];
