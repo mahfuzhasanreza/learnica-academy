@@ -70,28 +70,31 @@ const StickyCountdown = () => {
     }
 
     return (
-        <div className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-yellow-700 via-orange-600 to-red-600 text-white px-4 py-3 rounded-lg shadow-2xl border border-yellow-400 max-w-sm backdrop-blur-sm">
-            <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 animate-pulse" />
-                    <span className="text-sm font-medium">Offer ends in</span>
-                    <span className="font-bold text-base bg-black bg-opacity-30 px-2 py-1 rounded-md font-mono">
-                        {formatTime()}
-                    </span>
-                </div>
-                <button
-                    onClick={() => setIsVisible(false)}
-                    className="text-white hover:text-gray-200 transition-colors"
-                >
-                    <X className="w-4 h-4" />
-                </button>
+        <div className="fixed bottom-4 right-4 z-50 bg-gradient-to-r from-yellow-700 via-orange-600 to-red-600 text-white px-4 py-3 rounded-lg shadow-2xl border border-yellow-600 max-w-sm backdrop-blur-sm">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center space-x-2">
+              <Clock className="w-4 h-4 animate-pulse" />
+              <span className="font-semibold text-sm">Offer Closes In:</span>
             </div>
-
-            <button className="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-black font-semibold py-2 px-4 rounded-md transition-all duration-200 text-sm backdrop-blur-sm border border-white border-opacity-30 hover:scale-105 transform">
-                Enroll Courses
+            <button 
+              onClick={() => setIsVisible(false)}
+              className="text-white hover:text-gray-200 transition-colors"
+            >
+              <X className="w-4 h-4" />
             </button>
+          </div>
+          
+          <div className="text-center mb-3">
+            <div className="font-mono text-lg font-bold tracking-wider bg-black bg-opacity-30 px-3 py-2 rounded-md backdrop-blur-sm">
+              {formatTime()}
+            </div>
+          </div>
+          
+          <button className="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-semibold py-2 px-4 rounded-md transition-all duration-200 text-sm backdrop-blur-sm border border-white border-opacity-30 hover:scale-105 transform">
+            Enroll Courses
+          </button>
         </div>
-    );
-};
+      );
+    };
 
 export default StickyCountdown;
