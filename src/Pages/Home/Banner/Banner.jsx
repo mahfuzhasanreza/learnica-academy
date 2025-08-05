@@ -8,7 +8,7 @@ const AnimatedBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
       {/* Dynamic Gradient Base */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0"
         animate={{
           // background: [
@@ -27,10 +27,10 @@ const AnimatedBackground = () => {
           ease: "linear"
         }}
       />
-      
+
       {/* Neon Grid Effect */}
       <div className="absolute inset-0 opacity-20">
-        <motion.div 
+        <motion.div
           className="w-full h-full"
           animate={{
             backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"]
@@ -49,7 +49,7 @@ const AnimatedBackground = () => {
           }}
         />
       </div>
-      
+
       {/* Enhanced Moving Orbs */}
       <motion.div
         className="absolute top-10 left-10 w-64 h-64 rounded-full"
@@ -68,7 +68,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         className="absolute top-40 right-20 w-48 h-48 rounded-full"
         style={{
@@ -86,7 +86,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full"
         style={{
@@ -104,7 +104,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       {/* Sparkle Particles */}
       {[...Array(50)].map((_, i) => (
         <motion.div
@@ -131,7 +131,7 @@ const AnimatedBackground = () => {
           }}
         />
       ))}
-      
+
       {/* Floating Geometric Elements */}
       <motion.div
         className="absolute top-32 left-20 w-20 h-20 border-2 border-cyan-400/30"
@@ -147,7 +147,7 @@ const AnimatedBackground = () => {
           ease: "linear"
         }}
       />
-      
+
       <motion.div
         className="absolute bottom-40 right-32 w-16 h-16 border-2 border-pink-400/30 rounded-lg"
         animate={{
@@ -161,7 +161,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       {/* Pulsing Rings */}
       <motion.div
         className="absolute top-1/2 left-1/4 w-32 h-32 border border-white/10 rounded-full"
@@ -175,7 +175,7 @@ const AnimatedBackground = () => {
           ease: "easeInOut"
         }}
       />
-      
+
       <motion.div
         className="absolute top-1/3 right-1/3 w-24 h-24 border border-white/10 rounded-full"
         animate={{
@@ -199,11 +199,11 @@ const OfferBadge = () => {
     <motion.div
       initial={{ scale: 0, rotate: -180 }}
       animate={{ scale: 1, rotate: 0 }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 260, 
+      transition={{
+        type: "spring",
+        stiffness: 260,
         damping: 20,
-        delay: 0.5 
+        delay: 0.5
       }}
       className="relative"
     >
@@ -239,7 +239,7 @@ const OfferBadge = () => {
         >
           🔥 LIMITED TIME: 60% OFF
         </motion.span>
-        
+
         {/* Sparkle Effect */}
         <motion.div
           className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-300 rounded-full"
@@ -254,7 +254,7 @@ const OfferBadge = () => {
           }}
         />
       </motion.div>
-      
+
       {/* Floating "HOT" badge */}
       <motion.div
         className="absolute -top-3 -right-3 bg-yellow-400 text-black px-2 py-1 rounded-full text-xs font-black"
@@ -326,8 +326,8 @@ const Banner = () => {
   };
 
   const itemVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 60,
       filter: "blur(20px)"
     },
@@ -351,33 +351,33 @@ const Banner = () => {
         className="mx-96 md:mx-20 absolute z-10 h-full flex items-center content-center justify-center px-0 md:px-16 lg:px-24"
       >
         {/* Left Content */}
-        <div className="mt-16 md:mt-10 flex-1 ">
-          
-        {/* Lottie Animation */}
-        <motion.div
-          variants={itemVariants}
-          className="md:hidden flex justify-center items-center mt-32 mb-10"
-        >
+        <div className=" mt-16 md:mt-10 flex-1 ">
+
+          {/* Lottie Animation */}
           <motion.div
-            className=""
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            variants={itemVariants}
+            className="md:hidden flex justify-center items-center mt-32 mb-10"
           >
-            {/* Enhanced Lottie Container */}
-            <div className="relative z-30">
-              <Lottie 
-                animationData={lottie} 
-                loop={true} 
-                className="w-xs drop-shadow-2xl filter  relative z-40"
-              />
+            <motion.div
+              className=""
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Enhanced Lottie Container */}
+              <div className="relative z-30">
+                <Lottie
+                  animationData={lottie}
+                  loop={true}
+                  className="w-xs drop-shadow-2xl filter  relative z-40"
+                />
 
-            </div>
+              </div>
 
 
-            
+
+            </motion.div>
           </motion.div>
-        </motion.div>
-          
+
           {/* Offer Badge */}
           {/* <motion.div variants={itemVariants} className="mb-6">
             <OfferBadge />
@@ -390,7 +390,7 @@ const Banner = () => {
           >
             Grow{" "}
             <Highlight className="text-black font-extrabold">
-            Confidently
+              Confidently
             </Highlight>{" "}
             with{" "}
             <motion.span
@@ -398,7 +398,7 @@ const Banner = () => {
               bg-gradient-to-r from-yellow-400 via-amber-600 to-red-500
 
               bg-clip-text text-transparent"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 filter: "drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))"
               }}
@@ -414,22 +414,22 @@ const Banner = () => {
             className="text-sm md:text-xl text-gray-200 mb-16 md:mb-8 leading-relaxed max-w-2xl"
           >
             Top-rated online platform for{" "}
-            
+
             {/* <Highlight className="text-black dark:text-white font-bold">
               UIU students
             </Highlight> */}
 
             UIU students
-            
+
             {" "}
             to learn, grow, and excel with{" "}
-            
+
             {/* <Highlight className="text-black dark:text-white font-bold">
               real industry-focused
             </Highlight> */}
 
             real industry-focused
-            
+
             {" "}
             courses.
           </motion.p>
@@ -442,7 +442,7 @@ const Banner = () => {
             <motion.a
               href="#courses"
               className="relative items-center justify-center flex content-center px-5 py-3 md:px-8 md:py-4 bg-gradient-to-r from-red-600 via-yellow-600 to-red-600 text-white rounded-full font-bold text-lg overflow-hidden group shadow-2xl"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)"
               }}
@@ -473,7 +473,7 @@ const Banner = () => {
             <motion.a
               href="#benefits"
               className="items-center justify-center flex content-center px-5 py-3 md:px-8 md:py-4 border-2 border-yellow-400/50 text-white rounded-full font-bold text-lg hover:border-yellow-400 hover:bg-purple-400/10 transition-all backdrop-blur-sm relative overflow-hidden group"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)"
               }}
@@ -495,12 +495,12 @@ const Banner = () => {
             className="grid grid-cols-3 gap-6 max-w-lg mb-6"
           >
             {[
-  
+
             ].map((stat, index) => (
               <motion.div
                 key={index}
                 className="text-center group cursor-default relative"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.1,
                   y: -5
                 }}
@@ -508,7 +508,7 @@ const Banner = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2 + index * 0.2 }}
               >
-                <motion.div 
+                <motion.div
                   className={`text-2xl md:text-3xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent relative`}
                   animate={{
                     filter: ["drop-shadow(0 0 0px currentColor)", "drop-shadow(0 0 10px currentColor)", "drop-shadow(0 0 0px currentColor)"]
@@ -542,8 +542,8 @@ const Banner = () => {
               <motion.span
                 key={feature.text}
                 className="px-4 py-2 bg-white/5 backdrop-blur-sm text-white rounded-full text-sm font-semibold border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all cursor-default relative overflow-hidden group"
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   y: -3,
                   boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
                 }}
@@ -564,23 +564,23 @@ const Banner = () => {
         {/* Right Side - Enhanced Lottie Animation */}
         <motion.div
           variants={itemVariants}
-          className="hidden lg:flex flex-1 justify-center items-center ml-8"
+          className="hidden  lg:flex flex-1 justify-center items-center ml-8"
         >
           <motion.div
-            className="w-full max-w-lg h-96 relative"
+            className="w-full max-w-lg h-[410px] relative"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
             {/* Enhanced Lottie Container */}
             <div className="relative z-30">
-              <Lottie 
-                animationData={lottie} 
-                loop={true} 
-                className="w-sm md:w-2xl drop-shadow-2xl filter  relative z-40"
+              <Lottie
+                animationData={lottie}
+                loop={true}
+                className="w-sm md:w-2xl drop-shadow-2xl filter relative z-40"
               />
-              
+
               {/* Multi-layered Glow */}
-              <motion.div
+              {/* <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-blue-800/30 via-purple-800/30 to-cyan-800/30 rounded-full blur-2xl z-10"
                 animate={{
                   scale: [1, 1.3, 1],
@@ -592,8 +592,8 @@ const Banner = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-              />
-              
+              /> */}
+
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-pink-500/20 via-yellow-500/20 to-purple-500/20 rounded-full blur-2xl z-0"
                 animate={{
@@ -607,7 +607,7 @@ const Banner = () => {
                   ease: "easeInOut"
                 }}
               />
-              
+
               {/* Enhanced Orbiting Elements */}
               <motion.div
                 className="absolute top-1/4 right-0 w-6 h-6 bg-gradient-to-r shadow-lg z-20"
@@ -625,7 +625,7 @@ const Banner = () => {
                   filter: "drop-shadow(0 0 10px currentColor)"
                 }}
               />
-              
+
               {/* <motion.div
                 className="absolute bottom-1/4 left-0 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full shadow-lg z-20"
                 animate={{
@@ -642,7 +642,7 @@ const Banner = () => {
                   filter: "drop-shadow(0 0 8px currentColor)"
                 }}
               /> */}
-              
+
               {/* <motion.div
                 className="absolute top-1/2 left-1/2 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full shadow-lg z-20"
                 animate={{
@@ -662,7 +662,7 @@ const Banner = () => {
             </div>
 
 
-            
+
           </motion.div>
         </motion.div>
       </motion.div>
@@ -671,7 +671,7 @@ const Banner = () => {
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{
-          background: isHovered 
+          background: isHovered
             ? 'radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 70%)'
             : 'radial-gradient(circle at 50% 50%, transparent 0%, transparent 70%)'
         }}
