@@ -1,67 +1,238 @@
+// Footer.jsx
+import React from 'react';
+import { motion } from 'framer-motion';
+
+// Icons
+const LogoIcon = () => (
+  <svg className="w-8 h-8 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+  </svg>
+);
+
+const FacebookIcon = ({ className = "" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" />
+  </svg>
+);
+
+const WhatsAppIcon = ({ className = "" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
+  </svg>
+);
+
+const YouTubeIcon = ({ className = "" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.015 3.015 0 0 0 2.122-2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+  </svg>
+);
+
+const GmailIcon = ({ className = "" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+  </svg>
+);
+
 const Footer = () => {
-    return (
-        <footer>
-            <div className="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
-                <nav>
-                    <h6 className="footer-title">Services</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
-                </nav>
-                <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
-                </nav>
-                <nav>
-                    <h6 className="footer-title">Social</h6>
-                    <div className="grid grid-flow-col gap-4">
-                        <a>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                className="fill-current">
-                                <path
-                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                            </svg>
-                        </a>
-                        <a>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                className="fill-current">
-                                <path
-                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                            </svg>
-                        </a>
-                        <a>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                className="fill-current">
-                                <path
-                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </nav>
+  const quickLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Pricing', path: '/pricing' },
+  ];
+
+  const legalLinks = [
+    { name: 'Privacy Policy', path: '/privacy' },
+    { name: 'Terms of Service', path: '/terms' },
+    { name: 'Refund Policy', path: '/refund' },
+    { name: 'Cookie Policy', path: '/cookies' },
+  ];
+
+  const socialLinks = [
+    { name: 'Facebook', Icon: FacebookIcon, color: 'text-blue-500', href: 'https://facebook.com' },
+    { name: 'WhatsApp', Icon: WhatsAppIcon, color: 'text-green-500', href: 'https://wa.me/yournumber' },
+    { name: 'YouTube', Icon: YouTubeIcon, color: 'text-red-500', href: 'https://youtube.com' },
+    { name: 'Gmail', Icon: GmailIcon, color: 'text-orange-500', href: 'mailto:hello@learnica.com' },
+  ];
+
+  return (
+    <footer className="w-full relative bg-black overflow-hidden">
+      {/* Animated Background (matches ContactUs) */}
+      <div className=" absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            background: [
+              "linear-gradient(45deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%)",
+            ]
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        {/* Neon Grid Effect */}
+        <div className="absolute inset-0 opacity-10">
+          <motion.div
+            className="w-full h-full"
+            animate={{
+              backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"]
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px',
+            }}
+          />
+        </div>
+        {/* Floating Orb */}
+        <motion.div
+          className="absolute top-20 left-10 w-32 h-32 rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%)',
+            filter: 'blur(20px)',
+          }}
+          animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 w-10/12 mx-auto border-red-400 border-4 pt-16 pb-7">
+        <div className="flex justify-around gap-12">
+          {/* Brand Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <div className="flex items-center gap-3">
+              <LogoIcon />
+              <span className="text-2xl font-bold text-white">Learnica</span>
             </div>
-            <div className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
-                <aside>
-                    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
-                </aside>
+            <p className="w-96 text-gray-400 leading-relaxed">
+              Empowering learners worldwide with premium online courses in tech, design, and business.
+            </p>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
+            <ul className="space-y-4">
+              {quickLinks.map((link, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <a
+                    href={link.path}
+                    className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 block"
+                  >
+                    {link.name}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Legal */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-white font-bold text-lg mb-6">Legal</h3>
+            <ul className="space-y-4">
+              {legalLinks.map((link, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 + index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <a
+                    href={link.path}
+                    className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 block"
+                  >
+                    {link.name}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Social Links (Right Side) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col space-y-6"
+          >
+            <h3 className="text-white font-bold text-lg mb-6">Connect With Us</h3>
+            <div className="flex flex-col space-y-4">
+              {socialLinks.map((social, idx) => (
+                <motion.a
+                  key={idx}
+                  href={social.href}
+                  target={social.name === 'Gmail' ? '_blank' : '_self'}
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-3 text-gray-400 hover:text-white ${social.color} transition-all duration-300`}
+                  whileHover={{ x: 5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  aria-label={social.name}
+                >
+                  <social.Icon className="w-5 h-5" />
+                  <span>{social.name}</span>
+                </motion.a>
+              ))}
             </div>
-        </footer>
-    );
+          </motion.div>
+        </div>
+
+        {/* Divider */}
+        <motion.div
+          className="my-12 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        />
+
+        {/* Copyright Only */}
+        <motion.p
+          className="text-center text-gray-500 text-sm"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+        >
+          © 2025 Learnica Academy. All rights reserved.
+        </motion.p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
