@@ -74,7 +74,7 @@ const StickyCountdown = () => {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center space-x-2">
               <Clock className="w-4 h-4 animate-pulse" />
-              <span className="font-semibold text-sm">Offer Closes In:</span>
+              <span className="font-semibold text-sm">60% Offer Ends In</span>
             </div>
             <button 
               onClick={() => setIsVisible(false)}
@@ -90,7 +90,7 @@ const StickyCountdown = () => {
             </div>
           </div>
           
-          <button className="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-semibold py-2 px-4 rounded-md transition-all duration-200 text-sm backdrop-blur-sm border border-white border-opacity-30 hover:scale-105 transform">
+          <button className="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-black font-bold py-2 px-4 rounded-md transition-all duration-200 text-normal backdrop-blur-sm border border-white border-opacity-30 hover:scale-105 transform">
             Enroll Courses
           </button>
         </div>
