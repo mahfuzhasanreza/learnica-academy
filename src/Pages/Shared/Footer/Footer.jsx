@@ -16,16 +16,18 @@ const FacebookIcon = ({ className = "" }) => (
 );
 
 const WhatsAppIcon = ({ className = "" }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
+    <svg className={className} viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.003 3.2c-7.036 0-12.8 5.673-12.8 12.634 0 2.225.61 4.397 1.765 6.303L3.2 28.8l6.827-1.779a13.038 13.038 0 0 0 6.003 1.515h.001c7.036 0 12.8-5.674 12.8-12.636 0-3.396-1.325-6.591-3.731-8.974A12.953 12.953 0 0 0 16.003 3.2zm-.002 23.135h-.001a10.663 10.663 0 0 1-5.437-1.496l-.389-.231-4.052 1.053 1.081-3.946-.254-.404a10.41 10.41 0 0 1-1.654-5.677c0-5.805 4.751-10.527 10.6-10.527a10.532 10.532 0 0 1 7.513 3.13 10.367 10.367 0 0 1 3.093 7.443c0 5.804-4.751 10.555-10.6 10.555zm5.869-7.91c-.324-.162-1.922-.95-2.22-1.058-.297-.108-.512-.162-.727.162s-.835 1.058-1.024 1.28c-.189.216-.378.243-.702.081-.919-.432-1.7-1.134-2.376-2.027-.18-.243-.18-.405-.014-.594.162-.189.378-.432.54-.648.18-.216.243-.378.378-.648.135-.27.068-.51-.027-.72-.081-.216-.702-1.696-.962-2.322-.243-.567-.491-.49-.675-.499h-.578c-.162 0-.423.054-.648.27-.216.216-.851.83-.851 2.027s.87 2.348.99 2.514c.121.162 1.716 2.713 4.168 3.801.583.252 1.037.405 1.392.54.585.189 1.117.162 1.537.099.468-.07 1.435-.586 1.639-1.151.203-.567.203-1.053.143-1.151-.054-.094-.189-.149-.405-.27z" />
     </svg>
 );
 
+
 const YouTubeIcon = ({ className = "" }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.015 3.015 0 0 0 2.122-2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.615 3.184C18.403 2.89 12 2.89 12 2.89s-6.403 0-7.615.295A3.542 3.542 0 0 0 1.7 5.481C1.41 6.69 1.41 12 1.41 12s0 5.31.29 6.519a3.542 3.542 0 0 0 2.685 2.297c1.212.294 7.615.294 7.615.294s6.403 0 7.615-.294a3.542 3.542 0 0 0 2.685-2.297c.29-1.209.29-6.519.29-6.519s0-5.31-.29-6.519a3.542 3.542 0 0 0-2.685-2.297ZM9.75 15.568V8.432L15.818 12 9.75 15.568Z" />
     </svg>
 );
+
 
 const GmailIcon = ({ className = "" }) => (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -62,7 +64,7 @@ const Footer = () => {
 
     return (
         <footer className="w-full relative bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
-            
+
 
             {/* Main Content */}
             <div className="relative z-10 w-11/12 lg:w-10/12 mx-auto pt-20 pb-8">
@@ -75,7 +77,7 @@ const Footer = () => {
                         transition={{ duration: 0.8 }}
                         className="w-3/10 mx-auto  lg:col-span-1 space-y-6"
                     >
-                        <motion.div 
+                        <motion.div
                             className="flex items-center gap-3 group cursor-pointer"
                             whileHover={{ scale: 1.05 }}
                             transition={{ type: "spring", stiffness: 300 }}
@@ -91,10 +93,10 @@ const Footer = () => {
                             </span>
                         </motion.div>
                         <p className="text-gray-300 leading-relaxed text-sm">
-                            Empowering learners worldwide with premium online courses in tech, design, and business. 
+                            Empowering learners worldwide with premium online courses in tech, design, and business.
                             Join thousands of students transforming their careers.
                         </p>
-                        <motion.div 
+                        <motion.div
                             className="flex items-center text-indigo-400 font-semibold text-sm group cursor-pointer"
                             whileHover={{ x: 5 }}
                         >
@@ -113,7 +115,7 @@ const Footer = () => {
                     >
                         <h3 className="text-white font-semibold text-lg mb-6 relative">
                             Quick Links
-                            <motion.div 
+                            <motion.div
                                 className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: "120%" }}
@@ -136,7 +138,7 @@ const Footer = () => {
                                         className="text-gray-400 hover:text-white hover:text-indigo-300 transition-all duration-300 block relative group"
                                     >
                                         <span className="relative z-10">{link.name}</span>
-                                        <motion.div 
+                                        <motion.div
                                             className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-md -z-10"
                                             initial={{ scaleX: 0 }}
                                             whileHover={{ scaleX: 1 }}
@@ -159,7 +161,7 @@ const Footer = () => {
                     >
                         <h3 className="text-white font-semibold text-lg mb-6 relative">
                             Legal
-                            <motion.div 
+                            <motion.div
                                 className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: "100%" }}
@@ -182,7 +184,7 @@ const Footer = () => {
                                         className="text-gray-400 hover:text-white hover:text-purple-300 transition-all duration-300 block relative group"
                                     >
                                         <span className="relative z-10">{link.name}</span>
-                                        <motion.div 
+                                        <motion.div
                                             className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md -z-10"
                                             initial={{ scaleX: 0 }}
                                             whileHover={{ scaleX: 1 }}
@@ -205,7 +207,7 @@ const Footer = () => {
                     >
                         <h3 className="text-white font-semibold text-lg mb-6 relative">
                             Get in Touch
-                            <motion.div 
+                            <motion.div
                                 className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-pink-400 to-indigo-400"
                                 initial={{ width: 0 }}
                                 whileInView={{ width: "60%" }}
@@ -213,7 +215,7 @@ const Footer = () => {
                                 transition={{ duration: 0.8, delay: 0.5 }}
                             />
                         </h3>
-                        
+
                         <div className="w-fit grid grid-cols-4 gap-2">
                             {socialLinks.map((social, idx) => (
                                 <motion.a
@@ -222,7 +224,7 @@ const Footer = () => {
                                     target={social.name === 'Gmail' ? '_blank' : '_self'}
                                     rel="noopener noreferrer"
                                     className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/25 group`}
-                                    whileHover={{ 
+                                    whileHover={{
                                         y: -5,
                                         boxShadow: "0 10px 25px rgba(99, 102, 241, 0.3)"
                                     }}
