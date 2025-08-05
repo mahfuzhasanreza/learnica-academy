@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Lottie from 'lottie-react';
+import circleText from '../../../assets/lottie/CircleText.json';
 
 // Animated Background Component
 const AnimatedBackground = () => {
@@ -440,57 +442,42 @@ const ContactUs = () => {
             <AnimatedBackground />
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-                {/* Section Header */}
+              
+                {/* Section header */}
                 <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    className="text-center mb-20"
+                    className={`mb-20 text-center max-w-3xl mx-auto`}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    {/* <motion.div
-            variants={itemVariants}
-            className="inline-block"
-          >
-            <motion.span
-              className="inline-block px-6 py-3 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 backdrop-blur-lg border border-indigo-500/30 rounded-full text-indigo-300 text-sm font-bold mb-8 shadow-xl"
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 0 30px rgba(99, 102, 241, 0.3)"
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              💬 Get In Touch
-            </motion.span>
-          </motion.div> */}
+                    <div className="leading-tight flex items-center justify-center gap-4 mb-6">
+                        <h2 className="text-4xl md:text-6xl text-white font-extrabold bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500">
+                            Get
+                            <span className="relative inline-block mx-2">
+                                {/* Gradient applied to "Choose Us" together */}
+                                <span className="relative z-10 bg-gradient-to-r from-red-400 via-red-500 to-yellow-600 bg-clip-text text-transparent">
+                                    Help Instantly
+                                </span>
 
-                    <motion.h2
-                        variants={itemVariants}
-                        className="text-5xl md:text-7xl font-black text-white mb-8 leading-tight"
-                    >
-                        Contact{" "}
-                        <motion.span
-                            className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ duration: 0.3 }}
-                            style={{
-                                textShadow: "0 0 30px rgba(99, 102, 241, 0.3)"
-                            }}
-                        >
-                            Us
-                        </motion.span>
-                    </motion.h2>
+                                {/* Circle animation centered over “Choose” */}
+                                <Lottie
+                                    animationData={circleText}
+                                    loop={true}
+                                    className="absolute top-1/2 left-[17%] w-40 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                                />
+                            </span>
+                        </h2>
+                    </div>
 
                     <motion.p
-                        variants={itemVariants}
-                        className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+                        className="mt-7 text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
                     >
-                        Ready to start your learning journey? Have questions about our courses?
-                        We're here to help you succeed every step of the way.
+                        Ready to start your learning journey? Have questions about our courses? We're here to help you succeed every step of the way.
                     </motion.p>
                 </motion.div>
-
-
 
                 {/* Contact Form and Map Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
