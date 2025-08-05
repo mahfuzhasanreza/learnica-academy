@@ -69,6 +69,7 @@ const AnimatedBackground = () => {
         }}
       />
 
+      {/* right corner light effect */}
       <motion.div
         className="absolute top-40 right-20 w-48 h-48 rounded-full"
         style={{
@@ -87,6 +88,7 @@ const AnimatedBackground = () => {
         }}
       />
 
+      {/* middle side light effect */}
       <motion.div
         className="absolute bottom-20 left-1/3 w-72 h-72 rounded-full"
         style={{
@@ -148,7 +150,8 @@ const AnimatedBackground = () => {
         }}
       />
 
-      <motion.div
+      {/* right side ring */}
+      {/* <motion.div
         className="absolute bottom-40 right-32 w-16 h-16 border-2 border-pink-400/30 rounded-lg"
         animate={{
           rotate: [0, -360],
@@ -160,7 +163,7 @@ const AnimatedBackground = () => {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-      />
+      /> */}
 
       {/* Pulsing Rings */}
       <motion.div
