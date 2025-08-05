@@ -12,9 +12,9 @@ const Home = () => {
             <Banner></Banner>
             <WhyChooseUs></WhyChooseUs>
             <OurCourses></OurCourses>
-            <YouTubeFeaturedSection></YouTubeFeaturedSection>
             <Instructor></Instructor>
             <FAQSection></FAQSection>
+            <YouTubeFeaturedSection></YouTubeFeaturedSection>
             <ContactUs></ContactUs>
         </div>
     );
