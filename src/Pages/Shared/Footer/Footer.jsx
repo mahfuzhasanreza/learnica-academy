@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 // Icons
 const LogoIcon = () => (
-    <svg className="w-8 h-8 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+    <svg className="w-10 h-10 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
     </svg>
 );
@@ -33,121 +33,116 @@ const GmailIcon = ({ className = "" }) => (
     </svg>
 );
 
+const ArrowIcon = () => (
+    <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+);
+
 const Footer = () => {
     const quickLinks = [
         { name: 'Home', path: '/' },
         { name: 'Courses', path: '/courses' },
-        { name: 'About Us', path: '/about' },
+        { name: 'Instructors', path: '/Instructors' },
         { name: 'Contact', path: '/contact' },
-        { name: 'Pricing', path: '/pricing' },
     ];
 
     const legalLinks = [
         { name: 'Privacy Policy', path: '/privacy' },
         { name: 'Terms of Service', path: '/terms' },
         { name: 'Refund Policy', path: '/refund' },
-        { name: 'Cookie Policy', path: '/cookies' },
     ];
 
     const socialLinks = [
-        { name: 'Facebook', Icon: FacebookIcon, color: 'text-blue-500', href: 'https://facebook.com' },
-        { name: 'WhatsApp', Icon: WhatsAppIcon, color: 'text-green-500', href: 'https://wa.me/yournumber' },
-        { name: 'YouTube', Icon: YouTubeIcon, color: 'text-red-500', href: 'https://youtube.com' },
-        { name: 'Gmail', Icon: GmailIcon, color: 'text-orange-500', href: 'mailto:hello@learnica.com' },
+        { name: 'Facebook', Icon: FacebookIcon, color: 'hover:text-blue-400', href: 'https://facebook.com' },
+        { name: 'WhatsApp', Icon: WhatsAppIcon, color: 'hover:text-green-400', href: 'https://wa.me/yournumber' },
+        { name: 'YouTube', Icon: YouTubeIcon, color: 'hover:text-red-400', href: 'https://youtube.com' },
+        { name: 'Gmail', Icon: GmailIcon, color: 'hover:text-orange-400', href: 'mailto:hello@learnica.com' },
     ];
 
     return (
-        <footer className="w-full relative bg-black overflow-hidden">
-            {/* Animated Background (matches ContactUs) */}
-            <div className=" absolute inset-0 overflow-hidden">
-                {/* <motion.div
-          className="absolute inset-0"
-          animate={{
-            background: [
-              "linear-gradient(45deg, #000000 0%, #0a0a0a 25%, #1a1a1a 50%, #0f0f0f 75%, #000000 100%)",
-            ]
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        /> */}
-                {/* Neon Grid Effect */}
-                <div className="absolute inset-0 opacity-10">
-                    <motion.div
-                        className="w-full h-full"
-                        animate={{
-                            backgroundPosition: ["0px 0px", "50px 50px", "0px 0px"]
-                        }}
-                        transition={{
-                            duration: 10,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        style={{
-                            backgroundImage: `
-                linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
-              `,
-                            backgroundSize: '50px 50px',
-                        }}
-                    />
-                </div>
-                {/* Floating Orb */}
-                <motion.div
-                    className="absolute top-20 left-10 w-32 h-32 rounded-full"
-                    style={{
-                        background: 'radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%)',
-                        filter: 'blur(20px)',
-                    }}
-                    animate={{ x: [0, 40, 0], y: [0, -20, 0] }}
-                    transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-                />
-            </div>
+        <footer className="w-full relative bg-gradient-to-br from-gray-900 via-black to-gray-900 overflow-hidden">
+            
 
             {/* Main Content */}
-            <div className="relative z-10 w-10/12 mx-auto pt-16 pb-7">
-                <div className="flex justify-around gap-12">
+            <div className="relative z-10 w-11/12 lg:w-10/12 mx-auto pt-20 pb-8">
+                <div className="flex justify-between">
                     {/* Brand Column */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="space-y-6"
+                        transition={{ duration: 0.8 }}
+                        className="w-3/10 mx-auto  lg:col-span-1 space-y-6"
                     >
-                        <div className="flex items-center gap-3">
-                            <LogoIcon />
-                            <span className="text-2xl font-bold text-white">Learnica</span>
-                        </div>
-                        <p className="w-96 text-gray-400 leading-relaxed">
-                            Empowering learners worldwide with premium online courses in tech, design, and business.
+                        <motion.div 
+                            className="flex items-center gap-3 group cursor-pointer"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                        >
+                            <motion.div
+                                animate={{ rotate: [0, 360] }}
+                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            >
+                                <LogoIcon />
+                            </motion.div>
+                            <span className="text-3xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                Learnica
+                            </span>
+                        </motion.div>
+                        <p className="text-gray-300 leading-relaxed text-sm">
+                            Empowering learners worldwide with premium online courses in tech, design, and business. 
+                            Join thousands of students transforming their careers.
                         </p>
+                        <motion.div 
+                            className="flex items-center text-indigo-400 font-semibold text-sm group cursor-pointer"
+                            whileHover={{ x: 5 }}
+                        >
+                            <span>Explore Courses</span>
+                            <ArrowIcon />
+                        </motion.div>
                     </motion.div>
 
                     {/* Quick Links */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className=" mx-auto space-y-6"
                     >
-                        <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
-                        <ul className="space-y-4">
+                        <h3 className="text-white font-semibold text-lg mb-6 relative">
+                            Quick Links
+                            <motion.div 
+                                className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400"
+                                initial={{ width: 0 }}
+                                whileInView={{ width: "120%" }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.3 }}
+                            />
+                        </h3>
+                        <ul className="space-y-3">
                             {quickLinks.map((link, index) => (
                                 <motion.li
                                     key={index}
-                                    initial={{ opacity: 0, x: -10 }}
+                                    initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.1 + index * 0.05 }}
+                                    transition={{ delay: 0.1 + index * 0.1 }}
                                     viewport={{ once: true }}
+                                    whileHover={{ x: 8 }}
                                 >
                                     <a
                                         href={link.path}
-                                        className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 block"
+                                        className="text-gray-400 hover:text-white hover:text-indigo-300 transition-all duration-300 block relative group"
                                     >
-                                        {link.name}
+                                        <span className="relative z-10">{link.name}</span>
+                                        <motion.div 
+                                            className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-md -z-10"
+                                            initial={{ scaleX: 0 }}
+                                            whileHover={{ scaleX: 1 }}
+                                            style={{ originX: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        />
                                     </a>
                                 </motion.li>
                             ))}
@@ -156,80 +151,135 @@ const Footer = () => {
 
                     {/* Legal */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className=" mx-auto  space-y-6"
                     >
-                        <h3 className="text-white font-bold text-lg mb-6">Legal</h3>
-                        <ul className="space-y-4">
+                        <h3 className="text-white font-semibold text-lg mb-6 relative">
+                            Legal
+                            <motion.div 
+                                className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400"
+                                initial={{ width: 0 }}
+                                whileInView={{ width: "100%" }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.4 }}
+                            />
+                        </h3>
+                        <ul className="space-y-3">
                             {legalLinks.map((link, index) => (
                                 <motion.li
                                     key={index}
-                                    initial={{ opacity: 0, x: -10 }}
+                                    initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.2 + index * 0.05 }}
+                                    transition={{ delay: 0.2 + index * 0.1 }}
                                     viewport={{ once: true }}
+                                    whileHover={{ x: 8 }}
                                 >
                                     <a
                                         href={link.path}
-                                        className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 block"
+                                        className="text-gray-400 hover:text-white hover:text-purple-300 transition-all duration-300 block relative group"
                                     >
-                                        {link.name}
+                                        <span className="relative z-10">{link.name}</span>
+                                        <motion.div 
+                                            className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-md -z-10"
+                                            initial={{ scaleX: 0 }}
+                                            whileHover={{ scaleX: 1 }}
+                                            style={{ originX: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        />
                                     </a>
                                 </motion.li>
                             ))}
                         </ul>
                     </motion.div>
 
-                    {/* Social Links (Right Side) */}
+                    {/* Connect Section */}
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="flex flex-col space-y-6"
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className=" mx-auto space-y-6"
                     >
-                        <h3 className="text-white font-bold text-lg mb-6">Connect With Us</h3>
-                        <div className="flex space-x-8 justify-center md:justify-start">
+                        <h3 className="text-white font-semibold text-lg mb-6 relative">
+                            Get in Touch
+                            <motion.div 
+                                className="absolute -bottom-2 left-0 h-0.5 bg-gradient-to-r from-pink-400 to-indigo-400"
+                                initial={{ width: 0 }}
+                                whileInView={{ width: "60%" }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.5 }}
+                            />
+                        </h3>
+                        
+                        <div className="w-fit grid grid-cols-4 gap-2">
                             {socialLinks.map((social, idx) => (
                                 <motion.a
                                     key={idx}
                                     href={social.href}
                                     target={social.name === 'Gmail' ? '_blank' : '_self'}
                                     rel="noopener noreferrer"
-                                    className={`text-2xl ${social.color} transition-transform duration-300 hover:scale-110`}
-                                    whileHover={{ y: -3 }}
+                                    className={`flex items-center justify-center w-12 h-12 rounded-xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 text-gray-400 ${social.color} transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-indigo-500/25 group`}
+                                    whileHover={{ 
+                                        y: -5,
+                                        boxShadow: "0 10px 25px rgba(99, 102, 241, 0.3)"
+                                    }}
                                     whileTap={{ scale: 0.95 }}
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: 0.3 + idx * 0.1 }}
+                                    viewport={{ once: true }}
                                     aria-label={social.name}
                                 >
-                                    <social.Icon className="w-6 h-6 md:w-7 md:h-7" />
+                                    <social.Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                                 </motion.a>
                             ))}
                         </div>
                     </motion.div>
                 </div>
 
-                {/* Divider */}
+                {/* Enhanced Divider */}
                 <motion.div
-                    className="my-12 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                />
-
-                {/* Copyright Only */}
-                <motion.p
-                    className="text-center text-gray-500 text-sm"
+                    className="my-8 relative"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
+                    transition={{ duration: 1 }}
                 >
-                    © 2025 Learnica Academy. All rights reserved.
-                </motion.p>
+                    <motion.div
+                        className="h-px bg-gradient-to-r from-transparent via-indigo-400/50 via-purple-400/50 via-pink-400/50 to-transparent"
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.2 }}
+                    />
+                    <motion.div
+                        className="absolute inset-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.2, delay: 0.3 }}
+                    />
+                </motion.div>
+
+                {/* Enhanced Copyright */}
+                <motion.div
+                    className="text-center space-y-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                >
+                    <p className="text-gray-400 text-sm">
+                        © 2025 Learnica Academy. All rights reserved.
+                    </p>
+                </motion.div>
             </div>
+
+            {/* Bottom Glow Effect */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent" />
         </footer>
     );
 };
