@@ -626,7 +626,7 @@ const Banner = () => {
                 }}
               />
               
-              <motion.div
+              {/* <motion.div
                 className="absolute bottom-1/4 left-0 w-4 h-4 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full shadow-lg z-20"
                 animate={{
                   rotate: [360, 0],
@@ -641,9 +641,9 @@ const Banner = () => {
                   transformOrigin: "120px -120px",
                   filter: "drop-shadow(0 0 8px currentColor)"
                 }}
-              />
+              /> */}
               
-              <motion.div
+              {/* <motion.div
                 className="absolute top-1/2 left-1/2 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full shadow-lg z-20"
                 animate={{
                   rotate: [0, -360],
@@ -658,7 +658,7 @@ const Banner = () => {
                   transformOrigin: "0px -80px",
                   filter: "drop-shadow(0 0 6px currentColor)"
                 }}
-              />
+              /> */}
             </div>
 
 
