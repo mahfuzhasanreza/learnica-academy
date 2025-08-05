@@ -60,7 +60,7 @@ const Footer = () => {
     <footer className="w-full relative bg-black overflow-hidden">
       {/* Animated Background (matches ContactUs) */}
       <div className=" absolute inset-0 overflow-hidden">
-        <motion.div
+        {/* <motion.div
           className="absolute inset-0"
           animate={{
             background: [
@@ -72,7 +72,7 @@ const Footer = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-        />
+        /> */}
         {/* Neon Grid Effect */}
         <div className="absolute inset-0 opacity-10">
           <motion.div
@@ -107,7 +107,7 @@ const Footer = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 w-10/12 mx-auto border-red-400 border-4 pt-16 pb-7">
+      <div className="relative z-10 w-10/12 mx-auto pt-16 pb-7">
         <div className="flex justify-around gap-12">
           {/* Brand Column */}
           <motion.div
