@@ -1,7 +1,8 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, User, ShoppingCart, Bell } from "lucide-react";
-import learnicaLogo from '../../../assets/logo/learnica-logo.svg'
+import { Link } from "react-router-dom";
 import logoGif from '../../../assets/logo/Learnico.gif';
 
 
@@ -21,7 +22,7 @@ const Navbar = () => {
 
   // Navigation items
   const navItems = [
-    { name: 'Home', href: '#home' },
+    { name: 'Home', href: '/' },
     {
       name: 'Courses',
       href: '#courses',
@@ -33,6 +34,7 @@ const Navbar = () => {
       ]
     },
     // { name: 'About', href: '#about' },
+    { name: 'Tuition Calculator', href: 'tuition-calculator' },
     { name: 'Instructors', href: '#instructors' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -66,7 +68,9 @@ const Navbar = () => {
 
 
           {/* Logo */}
-          <img src={logoGif} alt="Learnica Logo" className="w-28 md:w-44" />
+          <Link to="/">
+            <img src={logoGif} alt="Learnica Logo" className="w-28 md:w-44" />
+          </Link>
 
 
           {/* Desktop Navigation */}
@@ -117,15 +121,29 @@ const Navbar = () => {
                       </motion.div>
                     </>
                   ) : (
-                    <a
-                      href={item.href}
-                      className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium relative group"
-                    >
-                      {item.name}
-                      <motion.div
-                        className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"
-                      />
-                    </a>
+                    <>
+                      {item.path ? (
+                        <Link
+                          to={item.href}
+                          className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium relative inline-block"
+                        >
+                          <span className="relative z-10">{item.name}</span>
+                          <motion.div
+                            className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"
+                          />
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          className="text-white hover:text-cyan-400 transition-colors duration-300 font-medium relative group"
+                        >
+                          {item.name}
+                          <motion.div
+                            className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:w-full transition-all duration-300"
+                          />
+                        </a>
+                      )}
+                    </>
                   )}
                 </div>
               ))}
@@ -248,13 +266,25 @@ const Navbar = () => {
                     </motion.div>
                   </>
                 ) : (
-                  <a
-                    href={item.href}
-                    className="block px-4 py-3 text-white hover:text-cyan-400 hover:bg-white/5 transition-all duration-300 font-medium"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </a>
+                  <>
+                    {item.path ? (
+                      <Link
+                        to={item.path}
+                        className="block px-4 py-3 text-white hover:text-cyan-400 hover:bg-white/5 transition-all duration-300 font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="block px-4 py-3 text-white hover:text-cyan-400 hover:bg-white/5 transition-all duration-300 font-medium"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </>
                 )}
               </div>
             ))}
